@@ -100,7 +100,7 @@ public class PlayerHealth : MonoBehaviour //tiete
         gameObject.transform.position = new Vector2(0, 0); // Reset position    
         respawnUi.SetActive(false); // Hide respawn UI
 
-        StartCoroutine(RestartSceneAfterDelay(1f));
+        StartCoroutine(RestartSceneAfterDelay(0f));
     }
     private void OnQuitButtonClicked()
     {
