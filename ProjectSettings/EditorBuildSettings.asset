@@ -9,13 +9,25 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 3341c7f485a792f479f07a77222c3ca1
   - enabled: 1
-    path: Assets/Scenes/7thFloorScene.unity
+    path: Assets/Scenes/IntroCutScene.unity
+    guid: 9bb85db7305fb28498b4a88815231279
+  - enabled: 1
+    path: Assets/Scenes/Intro.unity
+    guid: a02ae4be07a136f419be5dd605d94eaf
+  - enabled: 1
+    path: Assets/Scenes/7thFloorScenes/OutsideGymCutscene/OutsideGymCutScene.unity
+    guid: f5be035f7a54fee4cb08dfbfaf90bf7d
+  - enabled: 1
+    path: Assets/Scenes/7thFloorScenes/OutsideGymCutscene/OutsideGymScene.unity
+    guid: be8912236a05b794ba07291458acf5dd
+  - enabled: 1
+    path: Assets/Scenes/7thFloorScenes/7thFloorEnemyCutScene/7thFloorEnemyCutScene.unity
+    guid: adc8cada530ced34cbfb2ab04f55b85d
+  - enabled: 1
+    path: Assets/Scenes/7thFloorScenes/InsideGymScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
     path: Assets/Scenes/6thFloorScene.unity
     guid: 41c0b2bfd491bcf4396c50c4054c1a9c
-  - enabled: 1
-    path: Assets/Scenes/GirlsRestroomScene.unity
-    guid: 7adae2c84a62ea84a8c6ef946968c166
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: f1205533f1c0e6841bdb7430fdcceed3, type: 2}

@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Weapon
+  - MicWeapon
   layers:
   - Default
   - TransparentFX
@@ -36,7 +38,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - FilterLayer
   m_SortingLayers:
   - name: Default
     uniqueID: 0
@@ -44,20 +46,23 @@ TagManager:
   - name: Ground
     uniqueID: 1186400213
     locked: 0
+  - name: GroundEffects
+    uniqueID: 3160963867
+    locked: 0
+  - name: DecorNotCoveringPlayer
+    uniqueID: 3798350537
+    locked: 0
   - name: WalkInFront
     uniqueID: 1309545469
     locked: 0
   - name: Collision
     uniqueID: 1502894577
     locked: 0
-  - name: Decor2
+  - name: DecorNotCoveringPlayerFurniture
     uniqueID: 724556669
     locked: 0
-  - name: SideWall
-    uniqueID: 4254829625
-    locked: 0
-  - name: Decor
-    uniqueID: 4066081537
+  - name: DoorsNotCoveringPlayer
+    uniqueID: 2844280559
     locked: 0
   - name: NPC
     uniqueID: 608684469
@@ -68,8 +73,17 @@ TagManager:
   - name: Player
     uniqueID: 413976769
     locked: 0
-  - name: Doors
-    uniqueID: 2844280559
+  - name: DecorCoveringPlayer
+    uniqueID: 4066081537
+    locked: 0
+  - name: Hints
+    uniqueID: 1532502055
+    locked: 0
+  - name: DoorsCoveringPlayer
+    uniqueID: 2567437751
+    locked: 0
+  - name: SideWall
+    uniqueID: 4254829625
     locked: 0
   - name: WalkBehind
     uniqueID: 111300863

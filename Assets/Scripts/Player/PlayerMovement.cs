@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     bool isGainingStamina = false;
     public VirtualJoystick joystick;
 
-    Vector2 movement;
+    [HideInInspector] public Vector2 movement;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +45,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift) && playerHealth.currentStamina > 0)
         {
             moveSpeed = runSpeed;
+            animator.SetBool("isRunning", true); // Trigger running animation
+
             if (!isUsingStamina)
             {
                 StartCoroutine(UseStaminaWithCooldown());
@@ -53,6 +55,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             moveSpeed = walkSpeed;
+            animator.SetBool("isRunning", false); // Stop running animation
         }
         if (movement != Vector2.zero)
         {

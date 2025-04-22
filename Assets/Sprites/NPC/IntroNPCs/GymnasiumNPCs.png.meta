@@ -1,0 +1,1887 @@
+fileFormatVersion: 2
+guid: 30a07392f27a2814bb6f4b8df9aae98d
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 47
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GymnasiumNPCs_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 468
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c97b17b18ebce94e955936398e7ab2f
+      internalID: -1667000444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 468
+        width: 18
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c682c250208c964486cc77c85689898
+      internalID: 412035570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_2
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 468
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dde3642f0107c1d4bbd3da33971d6f15
+      internalID: 1927573935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_3
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 468
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff6cdcb9d9821104d96bea632ba04f37
+      internalID: 1457669437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_4
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 468
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56612ae9fb6653e45bdcaf3c383a8a8d
+      internalID: 265476500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_5
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 468
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0b73116a1abc534581a91fe2888f3ef
+      internalID: -1794921496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_6
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 468
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c5748df303d5194ba58425db3e078b5
+      internalID: 1050985231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_7
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 468
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 268ec0c2fa788c24a951b715235b4e09
+      internalID: -773865603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_8
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 436
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c3f1ca25d3aa504389ec75cc026e702
+      internalID: 419171788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_9
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 436
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6b8876e9f8b67a49ba31b72f071e85c
+      internalID: -1364516364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_10
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 436
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7b7bf0f3ade6784b8f1c0fa792ccf90
+      internalID: 341105608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_11
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 436
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0703b06dcdfe38c42a7680b0a5f3c1be
+      internalID: 424790300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_12
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 404
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8850e979b4ddaec49b6198943514636d
+      internalID: 790631989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_13
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 404
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6be232ca1f935f49998d4806c49d15e
+      internalID: 2053738443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_14
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 404
+        width: 18
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a55e68e8b66a2e64686df378f01167f5
+      internalID: -274221112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_15
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 404
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ef8d562321623940846055108b074b7
+      internalID: 1732676070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_16
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 404
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7236cd093ee93ae4b9a781b78d2eaf70
+      internalID: 108404383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_17
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 404
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ae10ae6a4c8e304cb38db0a9f751483
+      internalID: -2092403279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_18
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 404
+        width: 18
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 453acc85c4200a74c8733fdf28281148
+      internalID: 639328022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_19
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 404
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d833c245cb1d33488cd42a41ed75d2e
+      internalID: -1708144069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_20
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 372
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21e3a86a681f5e343a9c075bfc8d3ae9
+      internalID: -44251364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_21
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 372
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbf79d3de8290e44e8bd8b3bb8d80c89
+      internalID: -565187569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_22
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 372
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6c5ee6fec6cfb34786eb061a9404198
+      internalID: -1459792411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_23
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 372
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0695fde16d5fb247a329dc127cee77c
+      internalID: -310931410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_24
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 340
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f53f400152e94346ba37e392178d8c4
+      internalID: 681667913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_25
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 340
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8896515516ea5b541bf070e99a5af33a
+      internalID: -157312931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_26
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 340
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e45116db821ce34ca9b1b734798c3c5
+      internalID: 1225686422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_27
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 340
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 166266e59288be24c965eedd7a987c44
+      internalID: -1901160593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_28
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 340
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36978cde47586624ab481a62e97971a5
+      internalID: -1208871017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_29
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 340
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbea6881ba39e804d82826cb4e1bf250
+      internalID: 1825003674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_30
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 340
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5f307769a1b7c44ca9f3021e6994243
+      internalID: -1484317863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_31
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 340
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 425b35c62e461cb4caefdc16a459488f
+      internalID: 1623092640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_32
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 308
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9be5ad3a5d1860e4397432eb052489c6
+      internalID: -1738187177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_33
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 308
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7622b87c42fedbc459d3e736f008bcf1
+      internalID: 746094145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_34
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 308
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99b7f4ab69f93834b8abff053c7d9cde
+      internalID: -610967473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_35
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 308
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bec85871444c3d24ca3ad7b9ee13af16
+      internalID: 332803145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_36
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 276
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bcc8b2488994504db564e90d9602702
+      internalID: -1798978289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_37
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 276
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65d973744ca741f438857aeba91cb6fd
+      internalID: 692579847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_38
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 276
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a86dbba49b71a54aa17220b36f33760
+      internalID: -90943909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_39
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 276
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f73104b0088b73144882e822aa7e5fd4
+      internalID: 1295573917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_40
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 276
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3a30d3fa5a8dd548aa346311dcc0e1c
+      internalID: 1236369764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_41
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 276
+        width: 18
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56f8d4c2f9c99ea40a0ed8d04f9274f7
+      internalID: 334848826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_42
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 276
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a57f56be21363d4e804911f208f3531
+      internalID: 611924340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_43
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 276
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0b6af7dfcacc974489bb74de0f9b1e6
+      internalID: 1459631751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_44
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 212
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e66577396e85f6468b602da3de12ee9
+      internalID: 2141316394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_45
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 244
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caea5779377173b42b1ab7c38104c102
+      internalID: 1161550693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_46
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 244
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89c6a82092fa69f44a21222ac56f3b35
+      internalID: -31065095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_47
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 244
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 548a300f53475aa4eb9e2518ade37a0d
+      internalID: -502219640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_48
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 244
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9980bfceb68c50d4c822e2e27e0e496a
+      internalID: -868668171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_49
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 212
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa29d9ee7022df7449570b8ce9a71d9f
+      internalID: -7163106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_50
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 212
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29517f3a3442d69438e72dbedb869802
+      internalID: -1747382621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_51
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 212
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92185c1e251bc724b8bb5cbcd0dab1a6
+      internalID: -1973584931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_52
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 212
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f7d234dfff75064a86bce9295387146
+      internalID: -117195732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_53
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 212
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04eaf564458339241b712eb3c8819f19
+      internalID: 314642237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_54
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 212
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee42461175a372e4e9c58b22c4fb25df
+      internalID: -1091161861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_55
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 212
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3edcd72dcb4d4f4409be3e23a901a963
+      internalID: 767359417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_56
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 148
+        width: 18
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fe044f7c45f2664d96a32da1e163fa0
+      internalID: 1025854273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_57
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 148
+        width: 18
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c9485d30b38f924eaeed866748d6de4
+      internalID: -1006448959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_58
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 148
+        width: 18
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b4150bf489b3674d86784592854feda
+      internalID: -1438005278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_59
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 148
+        width: 18
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2af27121fe7fe5441b284ca7ed43ed86
+      internalID: -1583243074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_60
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 148
+        width: 18
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f5cb2d3e9c8993468713a19fa105cdc
+      internalID: 366348088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_61
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 148
+        width: 18
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2b32d568feebc943bacec66ea3206d1
+      internalID: 248008792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_62
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 148
+        width: 18
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f5dd2fc1b07e9647b336cb6c4d6cd36
+      internalID: -378034973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_63
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 148
+        width: 18
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f986ad509380a34ba74d17d72c28f0b
+      internalID: -1036788777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_64
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 84
+        width: 26
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eddcdfea70c516e4984ed7bc0e808b9a
+      internalID: -407222636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_65
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 84
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 308cdf8a38766514b80fbb89dc3f6014
+      internalID: -1105763682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_66
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 84
+        width: 26
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9afc300c0009c9348a5644e5342911ab
+      internalID: -2143040986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_67
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 84
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d81aa3e88f03bb48aadf210e29a34a2
+      internalID: 1513886742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_68
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 84
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22de9e72a628ed44fa1cd7e43d1ceb53
+      internalID: -1564949408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_69
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 84
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b2291860c7b52344aed768ad7a342b0
+      internalID: -1387821551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_70
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 84
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fa9bc0c2a015fe46b2fdbffd8e6d456
+      internalID: -440970236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_71
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 84
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 077e77bcf52beb54184d6eac6edfe62c
+      internalID: -1766966948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_72
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 20
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96446af0bfcc102438ae341fa58a7d55
+      internalID: 692930827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_73
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 20
+        width: 25
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16afde5f7a58b1b4ab407d8aa2241900
+      internalID: -1498469198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_74
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 20
+        width: 26
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ad375c26c6215c4cb537f98426005a3
+      internalID: 45402854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_75
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 20
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9e5ea8f951f0d047abac26a2ae6bfce
+      internalID: -1867580502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_76
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 20
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6d24426b174ec940967e336d740e7bf
+      internalID: 551688985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_77
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 20
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69339bfcf42148247a5a08b68b3d0be0
+      internalID: -1347241014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_78
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 20
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d4fe7731e263814a9eded1fa1e677a0
+      internalID: 1489811756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GymnasiumNPCs_79
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 20
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b564b92a58764b0459d850a09b0a6ff3
+      internalID: 1270782370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      GymnasiumNPCs_0: -1667000444
+      GymnasiumNPCs_1: 412035570
+      GymnasiumNPCs_10: 341105608
+      GymnasiumNPCs_11: 424790300
+      GymnasiumNPCs_12: 790631989
+      GymnasiumNPCs_13: 2053738443
+      GymnasiumNPCs_14: -274221112
+      GymnasiumNPCs_15: 1732676070
+      GymnasiumNPCs_16: 108404383
+      GymnasiumNPCs_17: -2092403279
+      GymnasiumNPCs_18: 639328022
+      GymnasiumNPCs_19: -1708144069
+      GymnasiumNPCs_2: 1927573935
+      GymnasiumNPCs_20: -44251364
+      GymnasiumNPCs_21: -565187569
+      GymnasiumNPCs_22: -1459792411
+      GymnasiumNPCs_23: -310931410
+      GymnasiumNPCs_24: 681667913
+      GymnasiumNPCs_25: -157312931
+      GymnasiumNPCs_26: 1225686422
+      GymnasiumNPCs_27: -1901160593
+      GymnasiumNPCs_28: -1208871017
+      GymnasiumNPCs_29: 1825003674
+      GymnasiumNPCs_3: 1457669437
+      GymnasiumNPCs_30: -1484317863
+      GymnasiumNPCs_31: 1623092640
+      GymnasiumNPCs_32: -1738187177
+      GymnasiumNPCs_33: 746094145
+      GymnasiumNPCs_34: -610967473
+      GymnasiumNPCs_35: 332803145
+      GymnasiumNPCs_36: -1798978289
+      GymnasiumNPCs_37: 692579847
+      GymnasiumNPCs_38: -90943909
+      GymnasiumNPCs_39: 1295573917
+      GymnasiumNPCs_4: 265476500
+      GymnasiumNPCs_40: 1236369764
+      GymnasiumNPCs_41: 334848826
+      GymnasiumNPCs_42: 611924340
+      GymnasiumNPCs_43: 1459631751
+      GymnasiumNPCs_44: 2141316394
+      GymnasiumNPCs_45: 1161550693
+      GymnasiumNPCs_46: -31065095
+      GymnasiumNPCs_47: -502219640
+      GymnasiumNPCs_48: -868668171
+      GymnasiumNPCs_49: -7163106
+      GymnasiumNPCs_5: -1794921496
+      GymnasiumNPCs_50: -1747382621
+      GymnasiumNPCs_51: -1973584931
+      GymnasiumNPCs_52: -117195732
+      GymnasiumNPCs_53: 314642237
+      GymnasiumNPCs_54: -1091161861
+      GymnasiumNPCs_55: 767359417
+      GymnasiumNPCs_56: 1025854273
+      GymnasiumNPCs_57: -1006448959
+      GymnasiumNPCs_58: -1438005278
+      GymnasiumNPCs_59: -1583243074
+      GymnasiumNPCs_6: 1050985231
+      GymnasiumNPCs_60: 366348088
+      GymnasiumNPCs_61: 248008792
+      GymnasiumNPCs_62: -378034973
+      GymnasiumNPCs_63: -1036788777
+      GymnasiumNPCs_64: -407222636
+      GymnasiumNPCs_65: -1105763682
+      GymnasiumNPCs_66: -2143040986
+      GymnasiumNPCs_67: 1513886742
+      GymnasiumNPCs_68: -1564949408
+      GymnasiumNPCs_69: -1387821551
+      GymnasiumNPCs_7: -773865603
+      GymnasiumNPCs_70: -440970236
+      GymnasiumNPCs_71: -1766966948
+      GymnasiumNPCs_72: 692930827
+      GymnasiumNPCs_73: -1498469198
+      GymnasiumNPCs_74: 45402854
+      GymnasiumNPCs_75: -1867580502
+      GymnasiumNPCs_76: 551688985
+      GymnasiumNPCs_77: -1347241014
+      GymnasiumNPCs_78: 1489811756
+      GymnasiumNPCs_79: 1270782370
+      GymnasiumNPCs_8: 419171788
+      GymnasiumNPCs_9: -1364516364
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -31,7 +31,7 @@ public class PlayerHealth : MonoBehaviour //tiete
     private Rigidbody2D rb;
     private Animator animator;
     private PlayerController playerController;
-    private bool isKnockedBack = false;
+    //private bool isKnockedBack = false;
     private bool playerDied = false;
 
     public bool IsPlayerDied()
