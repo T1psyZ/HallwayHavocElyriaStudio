@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Weapon
-  - MicWeapon
+  - StickWeapon
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -14,7 +14,7 @@ TagManager:
   - Water
   - UI
   - PlayerLayer
-  - 
+  - EnemyLayer
   - 
   - 
   - 
@@ -49,14 +49,14 @@ TagManager:
   - name: GroundEffects
     uniqueID: 3160963867
     locked: 0
-  - name: DecorNotCoveringPlayer
-    uniqueID: 3798350537
-    locked: 0
   - name: WalkInFront
     uniqueID: 1309545469
     locked: 0
   - name: Collision
     uniqueID: 1502894577
+    locked: 0
+  - name: DecorNotCoveringPlayer
+    uniqueID: 3798350537
     locked: 0
   - name: DecorNotCoveringPlayerFurniture
     uniqueID: 724556669

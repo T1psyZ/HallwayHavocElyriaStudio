@@ -1,20 +1,17 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
 
 public class PlayerWeaponHandler : MonoBehaviour
 {
-    private PlayerController playerMovement;
-    public List<GameObject> micWeapons = new List<GameObject>();
+    public Transform attackpoint;
+    public LayerMask enemyLayers;
     public int PickupRange;
-    private string currentWeaponType;
-    private GameObject currentWeaponEquipped = null;
     public Variables attackType;
-    Animator weaponAnimator;
-    Vector2 oldMovement;
+
+    private bool isDashing = false;
+    private PlayerController playerMovement;
+    private float timer;
 
     private void Start()
     {
@@ -23,143 +20,69 @@ public class PlayerWeaponHandler : MonoBehaviour
 
     private void Update()
     {
-        WeaponAttack();
+        WeaponAttackUpdate();
         PickUpUpdate();
-        WeaponFacing();
     }
 
-    void WeaponAttack()
+    void WeaponAttackUpdate()
     {
-        
-        if (Input.GetKeyDown(KeyCode.R) && currentWeaponEquipped != null)
+        if (Input.GetKeyDown(KeyCode.R) && !isDashing)
         {
-            string attackTypeValue = attackType.declarations.Get<string>("AttackType");
-            weaponAnimator = currentWeaponEquipped.GetComponent<Animator>();
-
-            if (string.IsNullOrEmpty(attackTypeValue))
-            {
-                return;
-            }
-
-            if (attackTypeValue == "Up")
-            {
-                weaponAnimator.SetFloat("AttackType", 0.1f);
-            }
-            else if (attackTypeValue == "Down")
-            {
-                weaponAnimator.SetFloat("AttackType", 0.2f);
-            }
-            else if (attackTypeValue == "Left")
-            {
-                weaponAnimator.SetFloat("AttackType", 0.3f);
-            }
-            else if (attackTypeValue == "Right")
-            {
-                weaponAnimator.SetFloat("AttackType", 0.4f);
-            }
-            else if (attackTypeValue == "UpLeft")
-            {
-                weaponAnimator.SetFloat("AttackType", 0.5f);
-            }
-            else if (attackTypeValue == "UpRight")
-            {
-                weaponAnimator.SetFloat("AttackType", 0.6f);
-            }
-            else if (attackTypeValue == "DownLeft")
-            {
-                weaponAnimator.SetFloat("AttackType", 0.7f);
-            }
-            else if (attackTypeValue == "DownRight")
-            {
-                weaponAnimator.SetFloat("AttackType", 0.8f);
-            }
-            
-            StartCoroutine(ResetAttack());
+            StartCoroutine(Dash());
+            playerMovement.animator.SetBool("IsAttacking", true);
         }
     }
-    IEnumerator ResetAttack()
+
+    public void dealDamage()
     {
-        yield return new WaitForSeconds(1f);
-        weaponAnimator.SetFloat("AttackType", 0f);
-    }
-    void WeaponFacing()
-    {
-        var x = playerMovement.movement.x;
-        var y = playerMovement.movement.y;
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(
+            attackpoint.position,
+            Stats_Manager.instance.weaponRange,
+            enemyLayers);
 
-        if (oldMovement != playerMovement.movement && currentWeaponEquipped != null)
+        if (enemies.Length > 0)
         {
-            currentWeaponEquipped.SetActive(false);
+            enemies[0].GetComponent<Enemy_health>().ChangeHealth(-Stats_Manager.instance.attackDamage);
+            enemies[0].GetComponent<Player_Knockbacl>().Knockback(transform, Stats_Manager.instance.knockbackForce);
         }
 
-        if (currentWeaponType == "MicWeapon")
-        {
-            if (x == 0 && y == 1) // Up
-            {
-                currentWeaponEquipped = micWeapons[0];
-                attackType.declarations.Set("AttackType", "Up");
-            }
-            else if (x == 0 && y == -1) // Down
-            {
-                currentWeaponEquipped = micWeapons[1];
-                attackType.declarations.Set("AttackType", "Down");
-            }
-            else if (x == -1 && y == 0) // Left
-            {
-                currentWeaponEquipped = micWeapons[2];
-                attackType.declarations.Set("AttackType", "Left");
-            }
-            else if (x == 1 && y == 0) // Right
-            {
-                currentWeaponEquipped = micWeapons[3];
-                attackType.declarations.Set("AttackType", "Right");
-            }
-            else if (x == -1 && y == 1) // Up Left
-            {
-                currentWeaponEquipped = micWeapons[4];
-                attackType.declarations.Set("AttackType", "UpLeft");
-            }
-            else if (x == 1 && y == 1) // Up Right
-            {
-                currentWeaponEquipped = micWeapons[5];
-                attackType.declarations.Set("AttackType", "UpRight");
-            }
-            else if (x == -1 && y == -1) // Down Left
-            {
-                currentWeaponEquipped = micWeapons[6];
-                attackType.declarations.Set("AttackType", "DownLeft");
-            }
-            else if (x == 1 && y == -1) // Down Right
-            {
-                currentWeaponEquipped = micWeapons[7];
-                attackType.declarations.Set("AttackType", "DownRight");
-            }
-        }
-
-        if (currentWeaponEquipped != null)
-        {
-            currentWeaponEquipped.SetActive(true);
-        }
-
-        oldMovement.x = x;
-        oldMovement.y = y;
+        timer = Stats_Manager.instance.cooldown;
     }
 
     void PickUpUpdate()
     {
-        var micsOnGround = GameObject.FindGameObjectsWithTag("MicWeapon");
+        var sticksOnGround = GameObject.FindGameObjectsWithTag("StickWeapon");
 
-        foreach (GameObject mic in micsOnGround)
+        foreach (GameObject stick in sticksOnGround)
         {
-            float distance = Vector3.Distance(mic.transform.position, transform.position);
+            float distance = Vector3.Distance(stick.transform.position, transform.position);
             if (distance <= PickupRange)
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    currentWeaponType = "MicWeapon";
-                    Destroy(mic);
+                    playerMovement.weaponEquipped = "StickWeapon";
+                    Destroy(stick);
                 }
             }
         }
+    }
+
+    private IEnumerator Dash()
+    {
+        isDashing = true;
+        playerMovement.enabled = false;
+        float elapsedTime = 0f;
+
+        Vector2 dashDirection = playerMovement.movement.normalized;
+        while (elapsedTime < Stats_Manager.instance.dashDuration)
+        {
+            playerMovement.rgbd2d.MovePosition(
+                playerMovement.rgbd2d.position + dashDirection * Stats_Manager.instance.dashSpeed * Time.fixedDeltaTime);
+            elapsedTime += Time.fixedDeltaTime;
+            yield return null;
+        }
+
+        isDashing = false;
+        playerMovement.enabled = true;
     }
 }

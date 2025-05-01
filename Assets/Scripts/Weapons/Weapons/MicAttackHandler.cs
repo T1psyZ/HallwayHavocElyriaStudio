@@ -16,8 +16,4 @@ public class MIcAttackHandler : MonoBehaviour
         
     }
 
-    public void Done()
-    {
-        //weaponAnimator.SetFloat("AttackType", 0f);
-    }
 }

@@ -29,15 +29,17 @@ public class Enemy_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isAttacking = false;
-        if (enemyState == EnemyState.Chasing)
-        {
-            Chase();
-        }
-        else if (enemyState == EnemyState.Attacking)
-        {
-            //rb.velocity = Vector2.zero;
-        }
+        if (enemyState != EnemyState.Knockback) { 
+            isAttacking = false;
+            if (enemyState == EnemyState.Chasing)
+                {
+                    Chase();
+                }
+            else if (enemyState == EnemyState.Attacking)
+                {
+                    //rb.velocity = Vector2.zero;
+                }
+         }
     }
 
     void OnCollisionStay2D(Collision2D collision)
@@ -115,7 +117,7 @@ public class Enemy_Movement : MonoBehaviour
             ChangeState(EnemyState.Idle);
         }
     }
-    void ChangeState(EnemyState newState)
+    public void ChangeState(EnemyState newState)
     {
         enemyState = newState;
         anim.SetInteger("AnimMode", enemyState == EnemyState.Attacking ? 1 : enemyState == EnemyState.Chasing? 2: 0);
@@ -127,4 +129,5 @@ public enum EnemyState
     Idle,
     Chasing,
     Attacking,
+    Knockback,
 }
