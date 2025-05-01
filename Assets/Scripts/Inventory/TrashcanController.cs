@@ -13,7 +13,9 @@ public class TrashcanController : MonoBehaviour
     public GameObject trashCanSlotPrefab;     // Prefab for each inventory slot
     public Button closeButton;                // Button to close the trash UI
     public GameObject inventoryUI;            // Reference to the Inventory panel (assign in Inspector)
-
+    public GameObject interactButton;
+    public GameObject menuButton;
+    public GameObject joystickControl;
     [Header("Slot Settings")]
     public int slotCount = 1;                 // Number of slots in the trashcan
 
@@ -40,6 +42,9 @@ public class TrashcanController : MonoBehaviour
     {
         if (trashCanUI != null)
         {
+            interactButton.SetActive(true); // Show the interact button again
+            joystickControl.SetActive(true); // Enable joystick
+            menuButton.SetActive(true);      // Enable menu button
             trashCanUI.SetActive(false); // Deactivate the whole TrashCan UI
         }
         else

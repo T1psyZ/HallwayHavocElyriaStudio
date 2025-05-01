@@ -6,23 +6,43 @@ public class TrashCanInteraction : MonoBehaviour
 {
     public GameObject trashCanUI;
     public GameObject inventoryUI;
+    public GameObject interactButton;
     public GameObject player;
+    public GameObject menuButton;
+    public GameObject joystickControl;
 
     private bool playerInRange = false;
 
     void Update()
     {
+        // Optional: keep this for desktop testing
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            if (trashCanUI != null && inventoryUI != null)
-            {
-                trashCanUI.SetActive(true);
-                inventoryUI.SetActive(true);
-            }
-            else
-            {
-                Debug.LogWarning("UI references not set on TrashCanInteraction.");
-            }
+            OpenTrashCan();
+        }
+    }
+
+    public void OnMobileInteractPressed()
+    {
+        if (playerInRange)
+        {
+            OpenTrashCan();
+        }
+    }
+
+    private void OpenTrashCan()
+    {
+        if (trashCanUI != null && inventoryUI != null)
+        {
+            trashCanUI.SetActive(true);
+            inventoryUI.SetActive(true);
+            interactButton.SetActive(false); // Hide the interact button
+            joystickControl.SetActive(false); // Disable joystick
+            menuButton.SetActive(false);      // Disable menu button
+        }
+        else
+        {
+            Debug.LogWarning("UI references not set on TrashCanInteraction.");
         }
     }
 
@@ -31,6 +51,7 @@ public class TrashCanInteraction : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
+            interactButton.SetActive(true);
         }
     }
 
@@ -39,8 +60,11 @@ public class TrashCanInteraction : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
+            interactButton.SetActive(true);
+            joystickControl.SetActive(true); // Disable joystick
+            menuButton.SetActive(true);
 
-            // Optional: auto-close when player leaves
+            // Optional: auto-close UIs
             if (trashCanUI != null) trashCanUI.SetActive(false);
             if (inventoryUI != null) inventoryUI.SetActive(false);
         }

@@ -8,6 +8,7 @@ public class MenuController : MonoBehaviour
     [Header("References")]
     public GameObject menuCanvas;        // The UI panel to show/hide
     public Button toggleMenuButton;      // The button that triggers the menu
+    public GameObject joystickControl;   // Joystick to hide/show
 
     void Start()
     {
@@ -36,6 +37,10 @@ public class MenuController : MonoBehaviour
         {
             bool newState = !menuCanvas.activeSelf;
             menuCanvas.SetActive(newState);
+
+            if (joystickControl != null)
+                joystickControl.SetActive(!newState); // Hide when menu is shown, show when menu is hidden
+
             Debug.Log("Menu toggled: " + newState);
         }
     }

@@ -12,6 +12,8 @@ public class InteractDialogue : MonoBehaviour
     [SerializeField] private Button interactNextButton;
     [SerializeField] private TMP_Text interactDialogueText;
     [SerializeField] private Image interactPortraitImage;
+    public GameObject interactButton;
+    public GameObject joystickControl;
 
     [Header("Interact Dialogue Data")]
     [SerializeField] private string[] interactSpeakers;
@@ -29,13 +31,24 @@ public class InteractDialogue : MonoBehaviour
 
     void Start()
     {
+        joystickControl.SetActive(true);
+        interactButton.SetActive(false);
         interactAudioSource = gameObject.AddComponent<AudioSource>();
         interactNextButton.onClick.AddListener(OnNextButtonClicked);
     }
 
-    void Update()
+    // Removed keyboard input check since mobile UI button will handle it
+
+    public void OnMobileInteractPressed()
     {
-        if (Input.GetButtonDown("Interact") && dialogueActive)
+        interactButton.SetActive(false);
+        joystickControl.SetActive(false);
+        if (dialogueActive && !interactDialogueCanvas.activeSelf)
+        {
+
+            DisplayDialogueStep();
+        }
+        else if (dialogueActive)
         {
             OnNextButtonClicked();
         }
@@ -43,6 +56,7 @@ public class InteractDialogue : MonoBehaviour
 
     private void OnNextButtonClicked()
     {
+       
         interactAudioSource.Stop();
 
         if (isTyping)
@@ -56,6 +70,7 @@ public class InteractDialogue : MonoBehaviour
             interactDialogueCanvas.SetActive(false);
             dialogueActive = false;
             step = 0;
+            joystickControl.SetActive(true); // ? Show controls again
         }
         else
         {
@@ -129,6 +144,7 @@ public class InteractDialogue : MonoBehaviour
         {
             dialogueActive = true;
             interactHint.SetActive(true);
+            interactButton.SetActive(true);
         }
     }
 
@@ -139,6 +155,7 @@ public class InteractDialogue : MonoBehaviour
             dialogueActive = false;
             interactDialogueCanvas.SetActive(false);
             interactHint.SetActive(false);
+            interactButton.SetActive(false);
         }
     }
 }

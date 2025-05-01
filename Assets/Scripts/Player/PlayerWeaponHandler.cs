@@ -1,6 +1,6 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
+using Unity.VisualScripting;
 
 public class PlayerWeaponHandler : MonoBehaviour
 {
@@ -13,15 +13,25 @@ public class PlayerWeaponHandler : MonoBehaviour
     private PlayerController playerMovement;
     private float timer;
 
+    public GameObject attackBtn;
+    public GameObject pickupBtn;
+
     private void Start()
     {
         playerMovement = GetComponent<PlayerController>();
+        attackBtn.SetActive(true);
+        pickupBtn.SetActive(true);
     }
 
     private void Update()
     {
         WeaponAttackUpdate();
-        PickUpUpdate();
+
+        // Optional for keyboard-based pickup (for testing in editor)
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            TryPickup();
+        }
     }
 
     void WeaponAttackUpdate()
@@ -30,6 +40,36 @@ public class PlayerWeaponHandler : MonoBehaviour
         {
             StartCoroutine(Dash());
             playerMovement.animator.SetBool("IsAttacking", true);
+        }
+    }
+
+    public void OnAttackButtonPressed()
+    {
+        if (!isDashing)
+        {
+            StartCoroutine(Dash());
+            playerMovement.animator.SetBool("IsAttacking", true);
+        }
+    }
+
+    public void OnPickupButtonPressed()
+    {
+        TryPickup();
+    }
+
+    private void TryPickup()
+    {
+        var sticksOnGround = GameObject.FindGameObjectsWithTag("StickWeapon");
+
+        foreach (GameObject stick in sticksOnGround)
+        {
+            float distance = Vector3.Distance(stick.transform.position, transform.position);
+            if (distance <= PickupRange)
+            {
+                playerMovement.weaponEquipped = "StickWeapon";
+                Destroy(stick);
+                break; // Exit loop after picking one up
+            }
         }
     }
 
@@ -47,24 +87,6 @@ public class PlayerWeaponHandler : MonoBehaviour
         }
 
         timer = Stats_Manager.instance.cooldown;
-    }
-
-    void PickUpUpdate()
-    {
-        var sticksOnGround = GameObject.FindGameObjectsWithTag("StickWeapon");
-
-        foreach (GameObject stick in sticksOnGround)
-        {
-            float distance = Vector3.Distance(stick.transform.position, transform.position);
-            if (distance <= PickupRange)
-            {
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    playerMovement.weaponEquipped = "StickWeapon";
-                    Destroy(stick);
-                }
-            }
-        }
     }
 
     private IEnumerator Dash()
