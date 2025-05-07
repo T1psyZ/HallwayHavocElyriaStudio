@@ -12,14 +12,18 @@ public class Enemy_health : MonoBehaviour
     public event MonsterDefeated OnMonsterDefeated;
     public int currentHealth;
     public int maxHealth;
+
+    EnemyHealthBar healthBar;
     void Start()
     {
         currentHealth = maxHealth;
+        healthBar = GetComponentInChildren<EnemyHealthBar>();
     }
 
     public void ChangeHealth(int amount)
     {
         currentHealth += amount;
+        healthBar.UpdateHealthBar(currentHealth, maxHealth);
         if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth;

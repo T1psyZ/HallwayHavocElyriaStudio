@@ -10,21 +10,44 @@ public class PlayerItemCollector : MonoBehaviour
         inventoryController = FindObjectOfType<InventoryController>();
     }
 
-    // Update is called once per frame
-    private void OnTriggerEnter2D(Collider2D collision)
+    void Update()
     {
-        if (collision.CompareTag("Item"))
-        {
-            Item item = collision.GetComponent<Item>();
-            if (item != null) { }
-            {
-                bool itemAdded = inventoryController.AddItem(collision.gameObject);
+        var lootsOnGround = GameObject.FindGameObjectsWithTag("Item");
 
-                if (itemAdded)
+        foreach (GameObject loot in lootsOnGround)
+        {
+            float distance = Vector3.Distance(loot.transform.position, transform.position);
+            if (distance <= 1)
+            {
+                Item item = loot.GetComponent<Item>();
+                if (item != null) { }
                 {
-                    Destroy(collision.gameObject);
+                    bool itemAdded = inventoryController.AddItem(loot.gameObject);
+
+                    if (itemAdded)
+                    {
+                        Destroy(loot.gameObject);
+                    }
                 }
+                break; // Exit loop after picking one up
             }
         }
     }
+    //// Update is called once per frame
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.CompareTag("Item"))
+    //    {
+    //        Item item = collision.GetComponent<Item>();
+    //        if (item != null) { }
+    //        {
+    //            bool itemAdded = inventoryController.AddItem(collision.gameObject);
+
+    //            if (itemAdded)
+    //            {
+    //                Destroy(collision.gameObject);
+    //            }
+    //        }
+    //    }
+    //}
 }

@@ -5,6 +5,7 @@ public class ShakeTrigger : MonoBehaviour
     public GameObject exitTrigger; // Assign BoysRestroomToOutsideGym in inspector
     private bool hasShaken = false;
     private TriggerDialogue triggerDialogue;
+  
 
     private void Start()
     {
@@ -12,6 +13,7 @@ public class ShakeTrigger : MonoBehaviour
         // Disable exit trigger until shake is activated
         if (exitTrigger != null)
         {
+           
             exitTrigger.SetActive(false);
         }
     }
@@ -29,6 +31,7 @@ public class ShakeTrigger : MonoBehaviour
             if (impulse != null)
             {
                 impulse.GenerateImpulse();
+               
             }
 
             // Enable exit trigger
@@ -38,7 +41,7 @@ public class ShakeTrigger : MonoBehaviour
             }
 
             // Optional: Destroy this trigger to prevent retriggering
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 }

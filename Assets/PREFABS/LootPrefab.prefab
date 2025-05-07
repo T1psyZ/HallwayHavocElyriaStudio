@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: -684240161095745270}
   - component: {fileID: 2660287982037761360}
   - component: {fileID: 8566027968627108972}
-  - component: {fileID: -8618413512926198748}
   m_Layer: 0
   m_Name: LootPrefab
   m_TagString: Item
@@ -170,6 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b02c321f93cad9642af3103a531ed394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  expOnDrop: 1
 --- !u!114 &1035905343819299950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0a7e543506d30e48b51607c9a5fda17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 2
+  ID: 3
 --- !u!225 &-684240161095745270
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -233,15 +233,3 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &-8618413512926198748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9205382482674492881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b02c321f93cad9642af3103a531ed394, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

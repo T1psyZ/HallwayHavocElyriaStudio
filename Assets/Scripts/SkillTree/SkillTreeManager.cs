@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Linq;
 
 public class SkillTreeManager : MonoBehaviour
 {
@@ -61,23 +62,13 @@ public class SkillTreeManager : MonoBehaviour
 
         foreach (SkillSlot slot in skillSlots)
         {
-            if (slot.prerequisiteSkillSlots.Contains(skillSlot))
+            if (slot.prerequisiteSkillSlots.Contains(skillSlot) && slot.name != skillSlot.name)
             {
-                Debug.Log($"{slot.name} has {skillSlot.name} as prerequisite.");
-
                 if (!slot.isUnlocked)
                 {
-                    Debug.Log($"{slot.name} is currently locked. Checking CanUnlockSkill...");
 
-                    if (slot.CanUnlockSkill())
-                    {
-                        Debug.Log($"{slot.name} meets all conditions. Unlocking now!");
-                        slot.Unlock();
-                    }
-                    else
-                    {
-                        Debug.Log($"{slot.name} cannot unlock yet (other prerequisites not complete).");
-                    }
+                    slot.Unlock();
+                    break;
                 }
                 else
                 {

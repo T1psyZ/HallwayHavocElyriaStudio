@@ -18,6 +18,8 @@ public class TrashcanController : MonoBehaviour
     public GameObject joystickControl;
     [Header("Slot Settings")]
     public int slotCount = 1;                 // Number of slots in the trashcan
+    [Header("Public Checks")]
+    public bool inTrashcan = false; // Set to true when the player is in the trashcan UI
 
     void Start()
     {
@@ -42,6 +44,7 @@ public class TrashcanController : MonoBehaviour
     {
         if (trashCanUI != null)
         {
+            inTrashcan = false;
             interactButton.SetActive(true); // Show the interact button again
             joystickControl.SetActive(true); // Enable joystick
             menuButton.SetActive(true);      // Enable menu button
@@ -87,6 +90,7 @@ public class TrashcanController : MonoBehaviour
     {
         for (int i = 0; i < slotCount; i++)
         {
+            trashCanSlotPrefab.gameObject.name = "TrashCanSlot";
             Instantiate(trashCanSlotPrefab, trashCanPanel.transform);
         }
 
@@ -96,7 +100,6 @@ public class TrashcanController : MonoBehaviour
             {
                 InventorySlot slot = trashCanPanel.transform.GetChild(data.slotIndex).GetComponent<InventorySlot>();
                 GameObject itemPrefab = itemDictionary.GetItemPrefab(data.itemID);
-
                 if (itemPrefab != null)
                 {
                     GameObject item = Instantiate(itemPrefab, slot.transform);

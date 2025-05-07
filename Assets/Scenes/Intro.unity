@@ -7348,7 +7348,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.78, y: 5.81, z: -10}
+  m_LocalPosition: {x: -8.001715, y: 7.425956, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -23484,7 +23484,7 @@ Transform:
   m_GameObject: {fileID: 1354892549}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -22.798285, y: 0.064044, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -23987,7 +23987,7 @@ Transform:
   m_GameObject: {fileID: 1416204730}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.005164503, w: 0.9999867}
-  m_LocalPosition: {x: -4.78, y: 5.81, z: 0}
+  m_LocalPosition: {x: -30.8, y: 7.49, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29970,10 +29970,10 @@ MonoBehaviour:
   - you
   triggerDialogueLines:
   - asdfsadf
-  - asdasdasdasdasdasd
   triggerPortraits:
   - {fileID: 21300000, guid: e67504bb2b9d3744ab0488b4acc02e6c, type: 3}
-  triggerDialogueAudio: []
+  triggerDialogueAudio:
+  - {fileID: 8300000, guid: 6e1ff609ecf644f4faf5cc744a0d2cd6, type: 3}
   typingSpeed: 0.02
 --- !u!82 &1981398379
 AudioSource:

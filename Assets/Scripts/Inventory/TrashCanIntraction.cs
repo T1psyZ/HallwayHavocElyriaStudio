@@ -12,7 +12,12 @@ public class TrashCanInteraction : MonoBehaviour
     public GameObject joystickControl;
 
     private bool playerInRange = false;
+    TrashcanController trashcanController;
 
+    private void Start()
+    {
+        trashcanController = FindObjectOfType<TrashcanController>();
+    }
     void Update()
     {
         // Optional: keep this for desktop testing
@@ -34,6 +39,7 @@ public class TrashCanInteraction : MonoBehaviour
     {
         if (trashCanUI != null && inventoryUI != null)
         {
+            trashcanController.inTrashcan = true;
             trashCanUI.SetActive(true);
             inventoryUI.SetActive(true);
             interactButton.SetActive(false); // Hide the interact button

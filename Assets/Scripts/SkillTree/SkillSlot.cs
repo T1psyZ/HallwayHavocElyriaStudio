@@ -51,10 +51,10 @@ public class SkillSlot : MonoBehaviour
     {
         foreach (SkillSlot slot in prerequisiteSkillSlots)
         {
-            if (!slot.isUnlocked || slot.currentLevel < int.Parse(slot.skillISO.maxLevel))
-            {
-                return false;
-            }
+            //if (slot.isUnlocked || slot.currentLevel < int.Parse(slot.skillISO.maxLevel))
+            //{
+            //    return false;
+            //}
         }
         return true;
     }
