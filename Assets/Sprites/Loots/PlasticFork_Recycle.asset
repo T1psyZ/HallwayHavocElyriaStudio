@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f34bc86af9c11bd4bb00890f5a2c9732, type: 3}
-  m_Name: PlasticFork
+  m_Name: PlasticFork_Recycle
   m_EditorClassIdentifier: 
   lootSprite: {fileID: -1541683606, guid: d0c8fee2257dc904dab3d4c3e2076199, type: 3}
-  lootName: Plastic Fork
+  itemID: 2
+  lootName: Recyclable
   dropChance: 100

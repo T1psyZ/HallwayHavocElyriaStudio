@@ -7,7 +7,7 @@ public class PlayerWalkOnly : MonoBehaviour
     public VirtualJoystick joystick;
     public Animator animator;
 
-    private Vector2 movement;
+    public Vector2 movement;
 
     void Update()
     {

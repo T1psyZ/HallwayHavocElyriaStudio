@@ -6,6 +6,7 @@ TagManager:
   tags:
   - StickWeapon
   - Item
+  - Trashcan
   layers:
   - Default
   - TransparentFX

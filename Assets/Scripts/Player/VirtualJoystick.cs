@@ -12,7 +12,7 @@ public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, I
     private Vector3 inputVector;
     public bool forPlayer;
 
-    public PlayerController Player = null;
+    public PlayerWalkOnly Player = null;
 
 
     private void Start()
@@ -29,7 +29,7 @@ public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, I
         {
             if (Player == null)
             {
-                Player = FindObjectOfType<PlayerController>();
+                Player = FindObjectOfType<PlayerWalkOnly>();
             }
         }
     }
@@ -102,5 +102,10 @@ public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, I
             return inputVector.z;
         else
             return Input.GetAxisRaw("Vertical");
+    }
+
+    public void ResetAnalog() {
+        inputVector = Vector3.zero;
+        joystickImg.rectTransform.anchoredPosition = Vector3.zero;
     }
 }

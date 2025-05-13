@@ -43,6 +43,11 @@ public class PlayerHealth : MonoBehaviour
         playerController = GetComponent<PlayerController>();
     }
 
+    private void Update()
+    {
+        healthText.text = $"HP: {currentHealth} / {Stats_Manager.instance.maxHealth}";
+        staminaText.text = $"ST: {currentStamina} / {Stats_Manager.instance.maxStamina}";
+    }
     public void ChangeHealth(int amount, Vector2 knockbackSource)
     {
         currentHealth += amount;

@@ -50,7 +50,6 @@ public class SkillTreeManager : MonoBehaviour
         // Check if the skill is already unlocked
         if (availablePoints > 0 )
         {
-            
             UpdatePointsText(-1); // Update points text
         }
        

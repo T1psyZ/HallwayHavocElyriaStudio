@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,18 +9,17 @@ public class TrashcanController : MonoBehaviour
     private ItemDictionary itemDictionary;
 
     [Header("UI References")]
-    public GameObject trashCanUI;             // The whole TrashCan UI container
-    public GameObject trashCanPanel;          // The panel that holds the slots
-    public GameObject trashCanSlotPrefab;     // Prefab for each inventory slot
+    public List<GameObject> trashCanUI;             // The whole TrashCan UI container
+    public List<GameObject> trashCanPanel;          // The panel that holds the slots
+    public List<GameObject> trashCanSlotPrefab;     // Prefab for each inventory slot
     public Button closeButton;                // Button to close the trash UI
     public GameObject inventoryUI;            // Reference to the Inventory panel (assign in Inspector)
     public GameObject interactButton;
     public GameObject menuButton;
     public GameObject joystickControl;
+
     [Header("Slot Settings")]
     public int slotCount = 1;                 // Number of slots in the trashcan
-    [Header("Public Checks")]
-    public bool inTrashcan = false; // Set to true when the player is in the trashcan UI
 
     void Start()
     {
@@ -44,11 +44,13 @@ public class TrashcanController : MonoBehaviour
     {
         if (trashCanUI != null)
         {
-            inTrashcan = false;
             interactButton.SetActive(true); // Show the interact button again
             joystickControl.SetActive(true); // Enable joystick
             menuButton.SetActive(true);      // Enable menu button
-            trashCanUI.SetActive(false); // Deactivate the whole TrashCan UI
+            foreach (var ui in trashCanUI)
+            {
+                ui.SetActive(false); // Deactivate the whole TrashCan UI
+            }
         }
         else
         {
@@ -69,18 +71,21 @@ public class TrashcanController : MonoBehaviour
     {
         List<InventorySaveData> invData = new List<InventorySaveData>();
 
-        foreach (Transform slotTransform in trashCanPanel.transform)
+        foreach (var panel in trashCanPanel)
         {
-            InventorySlot slot = slotTransform.GetComponent<InventorySlot>();
-            if (slot.currentItem != null)
+            foreach (Transform slotTransform in panel.transform)
             {
-                Item item = slot.currentItem.GetComponent<Item>();
-                invData.Add(new InventorySaveData
+                InventorySlot slot = slotTransform.GetComponent<InventorySlot>();
+                if (slot.currentItem != null)
                 {
-                    itemID = item.ID,
-                    slotIndex = slotTransform.GetSiblingIndex()
-                });
-            }
+                    Item item = slot.currentItem.GetComponent<Item>();
+                    invData.Add(new InventorySaveData
+                    {
+                        itemID = item.ID,
+                        slotIndex = slotTransform.GetSiblingIndex()
+                    });
+                }
+            }            
         }
 
         return invData;
@@ -88,25 +93,32 @@ public class TrashcanController : MonoBehaviour
 
     public void SetTrashcanItems(List<InventorySaveData> inventorySaveData)
     {
-        for (int i = 0; i < slotCount; i++)
+        for (int i = 0; i < trashCanPanel.Count(); i++)
         {
-            trashCanSlotPrefab.gameObject.name = "TrashCanSlot";
-            Instantiate(trashCanSlotPrefab, trashCanPanel.transform);
+            for (int j = 0; j < slotCount; j++)
+            {
+                Instantiate(trashCanSlotPrefab[i], trashCanPanel[i].transform);
+            }
         }
+
 
         foreach (InventorySaveData data in inventorySaveData)
         {
-            if (data.slotIndex < slotCount)
+            foreach (var panel in trashCanPanel)
             {
-                InventorySlot slot = trashCanPanel.transform.GetChild(data.slotIndex).GetComponent<InventorySlot>();
-                GameObject itemPrefab = itemDictionary.GetItemPrefab(data.itemID);
-                if (itemPrefab != null)
+                if (data.slotIndex < slotCount)
                 {
-                    GameObject item = Instantiate(itemPrefab, slot.transform);
-                    item.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
-                    slot.currentItem = item;
+                    InventorySlot slot = panel.transform.GetChild(data.slotIndex).GetComponent<InventorySlot>();
+                    GameObject itemPrefab = itemDictionary.GetItemPrefab(data.itemID);
+                    if (itemPrefab != null)
+                    {
+                        GameObject item = Instantiate(itemPrefab, slot.transform);
+                        item.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+                        slot.currentItem = item;
+                    }
                 }
             }
+
         }
     }
 }

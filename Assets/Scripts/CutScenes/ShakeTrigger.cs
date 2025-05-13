@@ -5,6 +5,7 @@ public class ShakeTrigger : MonoBehaviour
     public GameObject exitTrigger; // Assign BoysRestroomToOutsideGym in inspector
     private bool hasShaken = false;
     private TriggerDialogue triggerDialogue;
+    
   
 
     private void Start()
@@ -38,6 +39,7 @@ public class ShakeTrigger : MonoBehaviour
             if (exitTrigger != null)
             {
                 exitTrigger.SetActive(true);
+               
             }
 
             // Optional: Destroy this trigger to prevent retriggering

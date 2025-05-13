@@ -7,14 +7,15 @@ public class Enemy_Movement : MonoBehaviour
 
     public float speed;
     public float pushForce = 2f;
-    private Rigidbody2D rb;
-    private Transform Player;
+    private Rigidbody2D rb; 
     private int facingDirection = -1;
     private Animator anim;
-    private EnemyState enemyState, newState;
+    public EnemyState enemyState, newState;
     private PlayerHealth playerHealth;
+    GameObject player;
 
-    public float attackRange = 1;
+    public float attackRange = 5;
+    public float chaseRange = 10;
     bool isAttacking;
 
     // Start is called before the first frame update
@@ -22,6 +23,8 @@ public class Enemy_Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerHealth = player.GetComponent<PlayerHealth>();
         ChangeState(EnemyState.Idle);
     }
 
@@ -29,42 +32,72 @@ public class Enemy_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (enemyState != EnemyState.Knockback) { 
-            isAttacking = false;
-            if (enemyState == EnemyState.Chasing)
-                {
-                    Chase();
-                }
-            else if (enemyState == EnemyState.Attacking)
-                {
-                    //rb.velocity = Vector2.zero;
-                }
-         }
-    }
-
-    void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
+        var dist = Vector2.Distance(transform.position, player.transform.position);
+        if (dist > chaseRange)
         {
-            PlayerController playerMovement = collision.gameObject.GetComponent<PlayerController>();
-
+            rb.velocity = Vector2.zero;
+            ChangeState(EnemyState.Idle);
+        }
+        else
+        {
+            if (!isAttacking)
+                ChangeState(EnemyState.Chasing);
+            PlayerController playerMovement = player.GetComponent<PlayerController>();
             if (playerMovement != null)
             {
                 if (playerMovement.IsMoving())
                 {
                     // Stop both the player and the enemy
                     rb.velocity = Vector2.zero;
-                    collision.rigidbody.velocity = Vector2.zero;
+                    player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 }
                 else
                 {
                     // Push the player
-                    Vector2 pushDirection = (collision.transform.position - transform.position).normalized;
-                    collision.rigidbody.AddForce(pushDirection * pushForce, ForceMode2D.Force);
+                    Vector2 pushDirection = (player.transform.position - transform.position).normalized;
+                    player.GetComponent<Rigidbody2D>().AddForce(pushDirection * pushForce, ForceMode2D.Force);
                 }
+            }
+
+
+        }
+        if (enemyState != EnemyState.Knockback)
+        {
+            isAttacking = false;
+            if (enemyState == EnemyState.Chasing)
+            {
+                Chase();
+            }
+            else if (enemyState == EnemyState.Attacking)
+            {
+                rb.velocity = Vector2.zero;
             }
         }
     }
+
+    //void OnCollisionStay2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Player"))
+    //    {
+    //        PlayerController playerMovement = collision.gameObject.GetComponent<PlayerController>();
+
+    //        if (playerMovement != null)
+    //        {
+    //            if (playerMovement.IsMoving())
+    //            {
+    //                // Stop both the player and the enemy
+    //                rb.velocity = Vector2.zero;
+    //                collision.rigidbody.velocity = Vector2.zero;
+    //            }
+    //            else
+    //            {
+    //                // Push the player
+    //                Vector2 pushDirection = (collision.transform.position - transform.position).normalized;
+    //                collision.rigidbody.AddForce(pushDirection * pushForce, ForceMode2D.Force);
+    //            }
+    //        }
+    //    }
+    //}
 
     void Chase()
     {
@@ -73,20 +106,20 @@ public class Enemy_Movement : MonoBehaviour
             rb.velocity = Vector2.zero;
             return;
         }
-        if (Vector2.Distance(transform.position, Player.transform.position) <= attackRange)
+        if (Vector2.Distance(transform.position, player.transform.position) <= attackRange)
         {
             isAttacking = true;
             ChangeState(EnemyState.Attacking);
             
         }
-        else if (Player.position.x > transform.position.x && facingDirection == 1 ||
-               Player.position.x < transform.position.x && facingDirection == -1)
+        else if (player.transform.position.x > transform.position.x && facingDirection == 1 ||
+               player.transform.position.x < transform.position.x && facingDirection == -1)
         {
             Flip();
         }
         else
         {
-            Vector2 direction = (Player.position - transform.position).normalized;
+            Vector2 direction = (player.transform.position - transform.position).normalized;
             rb.velocity = direction * speed;
         }
 
@@ -95,27 +128,6 @@ public class Enemy_Movement : MonoBehaviour
     {
         facingDirection *= -1;
         transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
-    }
-
-    private void OnTriggerStay2D(Collider2D collision) //OntriggerENTER
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            if (Player == null)
-            {
-                Player = collision.transform;
-                playerHealth = collision.GetComponent<PlayerHealth>();
-            }
-            if (!isAttacking) ChangeState(EnemyState.Chasing);
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision) //OntriggerEXIT 
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            rb.velocity = Vector2.zero;
-            ChangeState(EnemyState.Idle);
-        }
     }
     public void ChangeState(EnemyState newState)
     {

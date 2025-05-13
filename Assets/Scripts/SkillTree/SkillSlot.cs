@@ -37,7 +37,18 @@ public class SkillSlot : MonoBehaviour
         if (isUnlocked && int.TryParse(skillISO.maxLevel, out int maxLevel) && currentLevel < maxLevel)
         {
             currentLevel++;
-            OnAbilityPointSpent?.Invoke(this);
+            if (gameObject.name.Contains("Health"))
+            {
+                Stats_Manager.instance.maxHealth += 1;
+            }else if (gameObject.name.Contains("Damage"))
+            {
+                Stats_Manager.instance.attackDamage += 2;
+            }
+            else if (gameObject.name.Contains("Stamina"))
+            {
+                Stats_Manager.instance.maxStamina += 1;
+            }
+                OnAbilityPointSpent?.Invoke(this);
 
             // Fix: Parse maxLevel to an integer for comparison
             if (currentLevel >= maxLevel)

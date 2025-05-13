@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 69916c6590ee0ab4c8cd6f90d441305f
+guid: 3c9bbcbde9231ca458b3e98d21894dee
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -97,12 +97,12 @@ TextureImporter:
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 47
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 0
+    overridden: 1
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BatterLoot_0
+      name: SkillTreeUi_0
       rect:
         serializedVersion: 2
-        x: 19
-        y: 231
-        width: 12
-        height: 18
+        x: 147
+        y: 115
+        width: 116
+        height: 101
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fed677d48e2cd7f4aae738a5f0550fef
-      internalID: 1312918318
+      spriteID: fdadf32e0e1a9ed4ea809f8e980dd597
+      internalID: -1877822612
       vertices: []
       indices: 
       edges: []
@@ -141,7 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      BatterLoot_0: 1312918318
+      SkillTreeUi_0: -1877822612
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

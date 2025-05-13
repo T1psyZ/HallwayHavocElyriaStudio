@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TrashCanInteraction : MonoBehaviour
 {
+    public string trashCanType;
     public GameObject trashCanUI;
     public GameObject inventoryUI;
     public GameObject interactButton;
@@ -20,7 +19,6 @@ public class TrashCanInteraction : MonoBehaviour
     }
     void Update()
     {
-        // Optional: keep this for desktop testing
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
             OpenTrashCan();
@@ -39,16 +37,11 @@ public class TrashCanInteraction : MonoBehaviour
     {
         if (trashCanUI != null && inventoryUI != null)
         {
-            trashcanController.inTrashcan = true;
             trashCanUI.SetActive(true);
             inventoryUI.SetActive(true);
             interactButton.SetActive(false); // Hide the interact button
             joystickControl.SetActive(false); // Disable joystick
             menuButton.SetActive(false);      // Disable menu button
-        }
-        else
-        {
-            Debug.LogWarning("UI references not set on TrashCanInteraction.");
         }
     }
 
@@ -67,7 +60,7 @@ public class TrashCanInteraction : MonoBehaviour
         {
             playerInRange = false;
             interactButton.SetActive(true);
-            joystickControl.SetActive(true); // Disable joystick
+            joystickControl.SetActive(true);
             menuButton.SetActive(true);
 
             // Optional: auto-close UIs

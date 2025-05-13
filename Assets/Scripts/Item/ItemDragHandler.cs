@@ -1,5 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -56,11 +60,27 @@ public class ItemDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         }
 
         InventorySlot originalSlot = originalParent.GetComponent<InventorySlot>();
-
+        if (dropSlot.name.Contains("Recyclable") || dropSlot.name.Contains("Reduce") || dropSlot.name.Contains("Reuse"))
+        {
+            Variables variables = GetComponent<Variables>();
+            if (variables != null)
+            {
+                string lootType = (string)variables.declarations.Get("lootType");
+                Debug.Log(dropSlot.name + " " + lootType  + " " + dropSlot.name.Contains(lootType));
+                if (!dropSlot.name.Contains(lootType))
+                {
+                    transform.SetParent(originalParent);
+                    GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+                    return;
+                }
+            }
+            else
+            {
+                Debug.LogWarning("Variables component is missing on the lootGameObject.");
+            }
+        }
         if (dropSlot != null)
         {
-            Debug.Log("Dropped on slot: " + dropSlot.name + " OriginalSlot: " + (originalSlot?.currentItem?.name ?? "None"));
-
             // Swap or move item
             if (dropSlot.currentItem != null)
             {
@@ -79,7 +99,7 @@ public class ItemDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
             // Gain experience
             Experience_Manager expManager = FindObjectOfType<Experience_Manager>();
-            if (expManager != null && dropSlot.name.Contains("TrashCanSlot"))
+            if (expManager != null && dropSlot.name.Contains("Recyclable") || dropSlot.name.Contains("Reduce") || dropSlot.name.Contains("Reuse"))
             {
                 expManager.GainExperience(expOnDrop);
                 StartCoroutine(DestroyAfterDelay(1f)); // Fixed coroutine call
@@ -91,6 +111,11 @@ public class ItemDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
             GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
             Debug.Log("Dropped outside any slot. Reverting.");
         }
+    }
+
+    public static string AddSpacesBeforeUppercase(string input)
+    {
+        return Regex.Replace(input, "(?<!^)([A-Z])", " $1");
     }
 
     private IEnumerator DestroyAfterDelay(float delay)

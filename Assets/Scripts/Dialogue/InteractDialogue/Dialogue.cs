@@ -29,12 +29,25 @@ public class InteractDialogue : MonoBehaviour
     private bool dialogueActive;
     private int step;
 
+    public VirtualJoystick virtualJoystick;
+
     void Start()
     {
         joystickControl.SetActive(true);
         interactButton.SetActive(false);
         interactAudioSource = gameObject.AddComponent<AudioSource>();
         interactNextButton.onClick.AddListener(OnNextButtonClicked);
+
+        virtualJoystick = FindAnyObjectByType<VirtualJoystick>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            DisplayDialogueStep();
+            OnMobileInteractPressed();
+        }
     }
 
     // Removed keyboard input check since mobile UI button will handle it
@@ -43,6 +56,9 @@ public class InteractDialogue : MonoBehaviour
     {
         interactButton.SetActive(false);
         joystickControl.SetActive(false);
+        virtualJoystick.ResetAnalog();
+        virtualJoystick.Player.movement = Vector2.zero;
+
         if (dialogueActive && !interactDialogueCanvas.activeSelf)
         {
 
@@ -142,6 +158,8 @@ public class InteractDialogue : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            
+
             dialogueActive = true;
             interactHint.SetActive(true);
             interactButton.SetActive(true);

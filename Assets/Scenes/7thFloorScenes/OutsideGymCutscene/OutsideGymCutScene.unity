@@ -2605,6 +2605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuCanvas: {fileID: 1989464688}
   toggleMenuButton: {fileID: 0}
+  joystickControl: {fileID: 0}
 --- !u!114 &314328879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2830,6 +2831,12 @@ PlayableDirector:
   - key: {fileID: 6628909853144541984, guid: dc1bb023f81a6124fbdbc20f6ae2f44d, type: 2}
     value: {fileID: 1166682667}
   - key: {fileID: 7724579045947694206, guid: dc1bb023f81a6124fbdbc20f6ae2f44d, type: 2}
+    value: {fileID: 335198632}
+  - key: {fileID: -7340939265979488740, guid: dc1bb023f81a6124fbdbc20f6ae2f44d, type: 2}
+    value: {fileID: 1166682667}
+  - key: {fileID: 3647956064424283346, guid: dc1bb023f81a6124fbdbc20f6ae2f44d, type: 2}
+    value: {fileID: 1740721717}
+  - key: {fileID: 978243149057764925, guid: dc1bb023f81a6124fbdbc20f6ae2f44d, type: 2}
     value: {fileID: 335198632}
   m_ExposedReferences:
     m_References: []

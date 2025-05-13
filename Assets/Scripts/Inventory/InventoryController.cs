@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class InventoryController : MonoBehaviour
@@ -12,7 +13,7 @@ public class InventoryController : MonoBehaviour
 
     void Start()
     {
-        itemDictionary = FindObjectOfType<ItemDictionary>();
+        itemDictionary = GetComponent<ItemDictionary>();
         /* for(int i = 0; i < slotCount; i++)
         {
             InventorySlot slot = Instantiate(inventorySlotPrefab, inventoryPanel.transform).GetComponent<InventorySlot>();
@@ -52,7 +53,7 @@ public class InventoryController : MonoBehaviour
             if (slot.currentItem != null)
             {
                 Item item = slot.currentItem.GetComponent<Item>();
-                invData.Add(new InventorySaveData { itemID = item.ID, slotIndex = slotTransform.GetSiblingIndex() });
+                invData.Add(new InventorySaveData { itemID = item.ID, slotIndex = slotTransform.GetSiblingIndex(), lootType = (string)(slot.currentItem.GetComponent<Variables>() == null ? "none" : slot.currentItem.GetComponent<Variables>().declarations.Get("lootType")) });
             }
         }
         return invData;
@@ -71,9 +72,15 @@ public class InventoryController : MonoBehaviour
             {
                 InventorySlot slot = inventoryPanel.transform.GetChild(data.slotIndex).GetComponent<InventorySlot>();
                 GameObject itemPrefab = itemDictionary.GetItemPrefab(data.itemID);
+
                 if (itemPrefab != null)
                 {
                     GameObject item = Instantiate(itemPrefab, slot.transform);
+                    if (data.lootType != "none")
+                    {
+                        var variables = item.GetComponent<Variables>();
+                        variables.declarations.Set("lootType", data.lootType);
+                    }
                     item.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
                     slot.currentItem = item;
                 }

@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class Experience_Manager : MonoBehaviour
 {
-    public int level;
-    public int currentExp;
-    public int expToLevel;
     public float expGrowthMultipliers = 2f;
     public Slider expSlider;
     public TMP_Text currentLevelText;
@@ -20,11 +18,9 @@ public class Experience_Manager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            GainExperience(2);
-        }
+        UpdateUI();
     }
+
 
     private void OnEnable()
     {
@@ -48,26 +44,26 @@ public class Experience_Manager : MonoBehaviour
 
     public void GainExperience(int amount)
     {
-        currentExp += amount;
-        if (currentExp >= expToLevel)
+        Stats_Manager.instance.currentExp += amount;
+        if (Stats_Manager.instance.currentExp >= Stats_Manager.instance.expToLevel)
         {
             LevelUp();
         }
 
-        UpdateUI();
+        
     }
 
     public void LevelUp()
     {
-        level++;
-        currentExp -= expToLevel;
-        expToLevel = Mathf.RoundToInt(expToLevel * expGrowthMultipliers);
+        Stats_Manager.instance.level++;
+        Stats_Manager.instance.currentExp -= Stats_Manager.instance.expToLevel;
+        Stats_Manager.instance.expToLevel = Mathf.RoundToInt(Stats_Manager.instance.expToLevel * expGrowthMultipliers);
     }
 
     public void UpdateUI()
     {
-        expSlider.maxValue = expToLevel;
-        expSlider.value = currentExp;
-        currentLevelText.text = "Level: " + level;
+        expSlider.maxValue = Stats_Manager.instance.expToLevel;
+        expSlider.value = Stats_Manager.instance.currentExp;
+        currentLevelText.text = "Level: " + Stats_Manager.instance.level;
     }
 }

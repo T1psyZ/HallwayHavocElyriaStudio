@@ -3433,7 +3433,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 20981511}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
@@ -3866,7 +3866,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -30.474419, y: 19.215229}
+  m_Offset: {x: -19.962132, y: 16.746716}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3877,7 +3877,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3309937, y: 2.4229374}
+  m_Size: {x: 2.2248306, y: 7.3599625}
   m_EdgeRadius: 0
 --- !u!483693784 &272370013
 TilemapRenderer:
@@ -5061,7 +5061,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 384.4, y: -106.1}
+  m_AnchoredPosition: {x: 386.1, y: -124}
   m_SizeDelta: {x: 170.41833, y: 74.40698}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &290010614
@@ -6629,14 +6629,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1804154152, guid: 5518994c692e39d4c8d6e0492f6ccd52, type: 3}
+  m_Sprite: {fileID: 112846983, guid: 97b73bb456b872045bcfdff3157a619c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -28796,7 +28796,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -30.474419, y: 19.215229}
+  m_Offset: {x: -30.474419, y: 16.72046}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -28807,7 +28807,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3309937, y: 2.4229374}
+  m_Size: {x: 1.3309937, y: 7.412472}
   m_EdgeRadius: 0
 --- !u!483693784 &1669364594
 TilemapRenderer:
@@ -29230,7 +29230,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   pushForce: 2
+  enemyState: 0
+  newState: 0
   attackRange: 1.5
+  chaseRange: 10
 --- !u!114 &1732793221
 MonoBehaviour:
   m_ObjectHideFlags: 0

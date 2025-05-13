@@ -6,6 +6,7 @@ using UnityEngine;
 public class Loot : ScriptableObject
 {
     public Sprite lootSprite;
+    public int itemID;
     public string lootName;
     public int dropChance;
 

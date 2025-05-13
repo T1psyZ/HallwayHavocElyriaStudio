@@ -9,4 +9,7 @@ public class SaveData
     public string mapBoundary; //Boundary name MAP
     public List<InventorySaveData> inventorySaveData;
     public List<InventorySaveData> trashcanSaveData;
+    public int exp;
+    public int expToLevel; 
+    public int level;
 }

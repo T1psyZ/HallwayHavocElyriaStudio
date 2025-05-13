@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,37 +9,37 @@ public class LootBag : MonoBehaviour
     public GameObject droppedItemPrefab;
     public List<Loot> lootList = new List<Loot>();
 
-    Loot GetDroppedItems()
-    {
-        int randomNumber = Random.Range(1, 101);
-        List<Loot> possibleItems = new List<Loot>();
-        foreach (Loot item in lootList)
-        {
-            //if (randomNumber <= item.dropChance)
-            //{
-                possibleItems.Add(item);
-
-            //}
-        }
-        if (possibleItems.Count > 0)
-        {
-            Loot droppedItem = possibleItems[Random.Range(0, possibleItems.Count)];
-            return droppedItem;
-        }
-        Debug.Log("No items dropped");
-        return null;
-    }
     public void InstanstiateLoot(Vector3 spawnPosition)
     {
-        Loot droppedItem = GetDroppedItems();
-        if (droppedItem != null)
+        foreach (var item in lootList)
         {
-            GameObject lootGameObject = Instantiate(droppedItemPrefab, spawnPosition, Quaternion.identity);
-            lootGameObject.GetComponent<SpriteRenderer>().sprite = droppedItem.lootSprite;
-            lootGameObject.GetComponent<Image>().sprite = droppedItem.lootSprite;
+                // Define the range for the random offset
+                float range = 2.0f;
 
+                // Calculate a random offset within the range
+                Vector3 randomOffset = new Vector3(
+                    Random.Range(-range, range), // Random X offset
+                    0,                          // Keep Y the same (or adjust if needed)
+                    Random.Range(-range, range) // Random Z offset
+                );
 
+                // Add the random offset to the enemy's position
+                Vector3 randomPosition = spawnPosition + randomOffset;
 
+                GameObject lootGameObject = Instantiate(droppedItemPrefab, randomPosition, Quaternion.identity);
+                lootGameObject.GetComponent<SpriteRenderer>().sprite = item.lootSprite;
+                lootGameObject.GetComponent<Image>().sprite = item.lootSprite;
+                lootGameObject.GetComponent<Item>().ID = item.itemID;
+
+                Variables variables = lootGameObject.GetComponent<Variables>();
+                if (variables != null)
+                {
+                    variables.declarations.Set("lootType", item.lootName);
+                }
+                else
+                {
+                    Debug.LogWarning("Variables component is missing on the lootGameObject.");
+                }
         }
 
     }

@@ -15,7 +15,7 @@ public class ItemDictionary : MonoBehaviour
         {
             if (itemPrefabs[i] != null)
             {
-                itemPrefabs[i].ID = i + 1;
+                itemPrefabs[i].ID = i;
             }
         }
 

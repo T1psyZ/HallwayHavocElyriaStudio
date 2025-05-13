@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -684240161095745270}
   - component: {fileID: 2660287982037761360}
   - component: {fileID: 8566027968627108972}
+  - component: {fileID: 8261839525636257681}
   m_Layer: 0
   m_Name: LootPrefab
   m_TagString: Item
@@ -154,9 +155,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.018539429}
   serializedVersion: 2
-  m_Radius: 0.53125
+  m_Radius: 1.0050507
 --- !u!114 &-6707019224869812687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0a7e543506d30e48b51607c9a5fda17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 3
+  ID: 2
 --- !u!225 &-684240161095745270
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -233,3 +234,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8261839525636257681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9205382482674492881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e741851cba3ad425c91ecf922cc6b379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"declarations":{"Kind":"Object","collection":{"$content":[],"$version":"A"},"$version":"A"}}'
+    _objectReferences: []

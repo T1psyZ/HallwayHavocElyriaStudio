@@ -1525,17 +1525,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41b83544b6fe284a8845264705f3614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  micWeapons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  attackpoint: {fileID: 0}
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 0
   PickupRange: 3
   attackType: {fileID: 0}
+  attackBtn: {fileID: 0}
+  pickupBtn: {fileID: 0}
 --- !u!114 &518453745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1664,18 +1661,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23f3c76e327b7754f92696a67862e343, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 6
-  maxHealth: 6
-  HealthTextAnim: {fileID: 1287904629}
   healthText: {fileID: 1287904628}
-  currentStamina: 0
-  gainStamina: 1
-  useStamina: 1
-  maxStamina: 10
-  StaminaTextAnim: {fileID: 100521715}
   staminaText: {fileID: 100521712}
-  knockbackForce: 5
-  knockbackDuration: 0.2
+  HealthTextAnim: {fileID: 1287904629}
+  StaminaTextAnim: {fileID: 100521715}
   respawnUi: {fileID: 170848948}
   respawnButton: {fileID: 1438120434}
   quitButton: {fileID: 852958383}
@@ -1691,12 +1680,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31060a9736e1fd145af92938c6e85aa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 2
-  runSpeed: 4
   rgbd2d: {fileID: 518453751}
   animator: {fileID: 518453747}
   joystick: {fileID: 1838277868}
+  sprintButton: {fileID: 0}
+  interactButton: {fileID: 0}
   movement: {x: 0, y: 0}
+  weaponEquipped: 
 --- !u!114 &518453750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1879,7 +1869,7 @@ Transform:
   m_GameObject: {fileID: 518453743}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.005164503, w: 0.9999867}
-  m_LocalPosition: {x: 23.94, y: 7.12, z: 0}
+  m_LocalPosition: {x: -15.53, y: 14.79, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -26029,7 +26019,7 @@ Transform:
   m_GameObject: {fileID: 1466856720}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.94, y: 7.12, z: -10}
+  m_LocalPosition: {x: -15.53, y: 14.79, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -27006,6 +26996,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuCanvas: {fileID: 1698731028}
+  toggleMenuButton: {fileID: 0}
+  joystickControl: {fileID: 0}
 --- !u!114 &1735425692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30086,7 +30078,7 @@ Transform:
   m_GameObject: {fileID: 1934270591}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.94, y: 7.12, z: -10}
+  m_LocalPosition: {x: -15.53, y: 14.79, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -16,6 +16,12 @@ public class Stats_Manager : MonoBehaviour
     public int gainStamina;
     public int useStamina;
     public int maxStamina;
+
+    [Header("Experience")]
+    public int level;
+    public int currentExp;
+    public int expToLevel;
+
     [Header("Combat")]
     public float weaponRange ;
     public int attackDamage;
@@ -24,6 +30,7 @@ public class Stats_Manager : MonoBehaviour
     public float cooldown;
     public float knockbackForce ;
     public float knockbackDuration ;
+
     [Header("Movement")]
     public float moveSpeed;
     public float walkSpeed;

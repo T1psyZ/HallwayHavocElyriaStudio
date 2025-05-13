@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3024348016213570526}
   - component: {fileID: 1426262619023648548}
   m_Layer: 0
-  m_Name: TrashCanSlot
+  m_Name: Recyclable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
