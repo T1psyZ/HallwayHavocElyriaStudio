@@ -47,7 +47,7 @@ public class SaveController : MonoBehaviour
             Stats_Manager.instance.currentExp = saveData.exp;
             Stats_Manager.instance.expToLevel = saveData.expToLevel;
             Stats_Manager.instance.level = saveData.level;
-            if (FindObjectOfType<CinemachineConfiner>() != null)
+            if (FindObjectOfType<CinemachineConfiner>() != null && FindObjectOfType<CinemachineConfiner>().m_BoundingShape2D != null)
             {
                 FindObjectOfType<CinemachineConfiner>().m_BoundingShape2D = GameObject.Find(saveData.mapBoundary).GetComponent<PolygonCollider2D>();
             }

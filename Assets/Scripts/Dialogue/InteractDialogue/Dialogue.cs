@@ -30,6 +30,7 @@ public class InteractDialogue : MonoBehaviour
     private int step;
 
     public VirtualJoystick virtualJoystick;
+    public GameObject player;
 
     void Start()
     {
@@ -39,6 +40,7 @@ public class InteractDialogue : MonoBehaviour
         interactNextButton.onClick.AddListener(OnNextButtonClicked);
 
         virtualJoystick = FindAnyObjectByType<VirtualJoystick>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void Update()
@@ -57,7 +59,7 @@ public class InteractDialogue : MonoBehaviour
         interactButton.SetActive(false);
         joystickControl.SetActive(false);
         virtualJoystick.ResetAnalog();
-        virtualJoystick.Player.movement = Vector2.zero;
+        player.GetComponent<PlayerController>().enabled = false; // Disable player movement
 
         if (dialogueActive && !interactDialogueCanvas.activeSelf)
         {

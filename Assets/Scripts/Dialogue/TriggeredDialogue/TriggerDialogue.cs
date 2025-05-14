@@ -112,17 +112,17 @@ public class TriggerDialogue : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (dialogueActive) return;
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (dialogueActive) return;
 
-        if (collision.CompareTag("Player"))
-        {
-            dialogueActive = true;
-            step = 0;
-            DisplayDialogueStep();
-        }
-    }
+    //    if (collision.CompareTag("Player"))
+    //    {
+    //        dialogueActive = true;
+    //        step = 0;
+    //        DisplayDialogueStep();
+    //    }
+    //}
 
     private void EndDialogue()
     {

@@ -60,13 +60,6 @@ public class SkillSlot : MonoBehaviour
     }
     public bool CanUnlockSkill()
     {
-        foreach (SkillSlot slot in prerequisiteSkillSlots)
-        {
-            //if (slot.isUnlocked || slot.currentLevel < int.Parse(slot.skillISO.maxLevel))
-            //{
-            //    return false;
-            //}
-        }
         return true;
     }
 

@@ -8421,7 +8421,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.78, y: 5.82, z: -10}
+  m_LocalPosition: {x: -8.000589, y: 7.8267107, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8891,6 +8891,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9562be0b2f723d34fa6b3ebb137e7c17, type: 3}
   - {fileID: 8300000, guid: 9562be0b2f723d34fa6b3ebb137e7c17, type: 3}
   typingSpeed: 0.02
+  virtualJoystick: {fileID: 0}
 --- !u!70 &594899486
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -25492,7 +25493,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 386, y: -109.4}
+  m_AnchoredPosition: {x: 387, y: -25.9}
   m_SizeDelta: {x: 170.41833, y: 74.40698}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1306824450
@@ -25827,7 +25828,7 @@ Transform:
   m_GameObject: {fileID: 1354892549}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -22.529411, y: 0.063289165, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -26330,7 +26331,7 @@ Transform:
   m_GameObject: {fileID: 1416204730}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.005164503, w: 0.9999867}
-  m_LocalPosition: {x: -4.78, y: 5.82, z: 0}
+  m_LocalPosition: {x: -30.53, y: 7.89, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -26562,6 +26563,7 @@ MonoBehaviour:
   rgbd2d: {fileID: 1416204731}
   joystick: {fileID: 208463455}
   animator: {fileID: 1416204736}
+  movement: {x: 0, y: 0}
 --- !u!1 &1428546576
 GameObject:
   m_ObjectHideFlags: 0
@@ -33401,6 +33403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exitTrigger: {fileID: 1077495476}
+  shakeDuration: 1.5
 --- !u!61 &1981398377
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -33466,7 +33469,7 @@ MonoBehaviour:
   triggerSpeakers:
   - you
   triggerDialogueLines:
-  - asdfsadf
+  - What was that?!
   triggerPortraits:
   - {fileID: 21300000, guid: e67504bb2b9d3744ab0488b4acc02e6c, type: 3}
   triggerDialogueAudio:
@@ -37026,6 +37029,7 @@ MonoBehaviour:
   interactPortraits: []
   interactDialogueAudio: []
   typingSpeed: 0.02
+  virtualJoystick: {fileID: 0}
 --- !u!61 &2077175922
 BoxCollider2D:
   m_ObjectHideFlags: 0

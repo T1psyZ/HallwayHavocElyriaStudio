@@ -82,7 +82,10 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetFloat("Speed", 0);
         }
+
+        LockerInteraction();
     }
+
 
     private void FixedUpdate()
     {
@@ -129,5 +132,25 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Interact button pressed");
         // Add interaction logic here
+    }
+
+    private void LockerInteraction()
+    {
+        var lockers = GameObject.FindGameObjectsWithTag("Locker");
+        foreach (GameObject locker in lockers)
+        {
+            float distance = Vector3.Distance(locker.transform.position, transform.position);
+            Transform childTransform = locker.transform.GetChild(0); // 0 is the index of the child
+            GameObject childObject = childTransform.gameObject;
+
+            if (distance <= 1)
+            {
+                childObject.SetActive(true);
+            }
+            else
+            {
+                childObject.SetActive(false);
+            }
+        }
     }
 }

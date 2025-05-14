@@ -31514,6 +31514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31060a9736e1fd145af92938c6e85aa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 0
   rgbd2d: {fileID: 1416204731}
   animator: {fileID: 1416204736}
   joystick: {fileID: 208463455}

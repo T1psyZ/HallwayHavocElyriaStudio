@@ -26,12 +26,6 @@ public class SkillTreeManager : MonoBehaviour
     {
         foreach (SkillSlot slot in skillSlots)
         {
-            Debug.Log($"Skill: {slot.name} has {slot.prerequisiteSkillSlots.Count} prerequisites.");
-            foreach (SkillSlot pre in slot.prerequisiteSkillSlots)
-            {
-                Debug.Log($"-- Prerequisite: {pre.name}");
-            }
-
             slot.skillButton.onClick.AddListener(() => CheckAvailablePoints(slot));
         }
         UpdatePointsText(0); // Initialize points text
