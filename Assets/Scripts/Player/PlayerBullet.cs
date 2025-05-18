@@ -14,7 +14,14 @@ public class PlayerBullet : MonoBehaviour
             {
                 Vector2 knockDirection = (collision.transform.position - transform.position).normalized;
                 enemyHealth.ChangeHealth(-1); // Change this value as needed
+              
             }
+            Enemy_Health2 enemyHealth2 = collision.GetComponent<Enemy_Health2>();
+            if (enemyHealth2 != null)
+            {
+                Vector2 knockDirection = (collision.transform.position - transform.position).normalized;
+                enemyHealth2.ChangeHealth(-1); // Change this value as needed
+            };
             Destroy(gameObject); // Destroy the bullet after hitting the player
         }
     }

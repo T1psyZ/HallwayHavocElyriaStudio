@@ -183,13 +183,13 @@ public class SkillTreeManager : MonoBehaviour
         string json = JsonUtility.ToJson(saveObj, true);
 
         // Save to file (for example)
-        File.WriteAllText(Application.persistentDataPath + "/skilltree_save2232.json", json);
+        File.WriteAllText(Application.persistentDataPath + "/skilltree_save2231.json", json);
         Debug.Log("Skill tree saved: " + json);
     }
 
     public void LoadSkillTree()
     {
-        string path = Application.persistentDataPath + "/skilltree_save2232.json";
+        string path = Application.persistentDataPath + "/skilltree_save2231.json";
         if (!File.Exists(path))
         {
             foreach (var skill in allSkills)

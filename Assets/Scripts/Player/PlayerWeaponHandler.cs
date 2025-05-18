@@ -86,8 +86,17 @@ public class PlayerWeaponHandler : MonoBehaviour
 
         if (enemies.Length > 0)
         {
-            enemies[0].GetComponent<Enemy_health>().ChangeHealth(-Stats_Manager.instance.attackDamage);
-            enemies[0].GetComponent<Player_Knockbacl>().Knockback(transform, Stats_Manager.instance.knockbackForce);
+            var eh = enemies[0].GetComponent<Enemy_health>();
+            if (eh != null)
+                eh.ChangeHealth(-Stats_Manager.instance.attackDamage);
+
+            var eh2 = enemies[0].GetComponent<Enemy_Health2>();
+            if (eh2 != null)
+                eh2.ChangeHealth(-Stats_Manager.instance.attackDamage);
+
+            var knockback = enemies[0].GetComponent<Player_Knockbacl>();
+            if (knockback != null)
+                knockback.Knockback(transform, Stats_Manager.instance.knockbackForce);
         }
 
         timer = Stats_Manager.instance.cooldown;
@@ -118,6 +127,21 @@ public class PlayerWeaponHandler : MonoBehaviour
         {
             return;
         }
+
+        // Check if enemy reference is valid
+        if (enemy == null)
+        {
+            Debug.LogWarning("No enemy assigned for ThrowableAttack.");
+            return;
+        }
+
+        // Additional check for destroyed GameObject (Unity's special null)
+        if (enemy.Equals(null))
+        {
+            Debug.LogWarning("Enemy GameObject has been destroyed.");
+            return;
+        }
+
         // Instantiate bullet at attackpoint
         GameObject b = Instantiate(bullet, transform.position, Quaternion.identity);
 

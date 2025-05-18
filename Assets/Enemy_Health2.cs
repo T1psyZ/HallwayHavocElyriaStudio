@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Enemy_health : MonoBehaviour
+public class Enemy_Health2 : MonoBehaviour
 {
     [Header("Loot")]
     public List<LootItems> lootTable = new List<LootItems>();
@@ -31,7 +31,7 @@ public class Enemy_health : MonoBehaviour
         }
         else if (currentHealth <= 0)
         {
-            OnMonsterDefeated(ExpRewarded);
+          
             died();
         }
     }
@@ -43,7 +43,8 @@ public class Enemy_health : MonoBehaviour
             GetComponent<LootBag>().InstanstiateLoot(transform.position);
         }
         Destroy(gameObject);
-   
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
     }
 
 
