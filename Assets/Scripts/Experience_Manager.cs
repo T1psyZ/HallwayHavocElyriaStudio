@@ -55,6 +55,7 @@ public class Experience_Manager : MonoBehaviour
 
     public void LevelUp()
     {
+        Stats_Manager.instance.skillPoints += 2;
         Stats_Manager.instance.level++;
         Stats_Manager.instance.currentExp -= Stats_Manager.instance.expToLevel;
         Stats_Manager.instance.expToLevel = Mathf.RoundToInt(Stats_Manager.instance.expToLevel * expGrowthMultipliers);

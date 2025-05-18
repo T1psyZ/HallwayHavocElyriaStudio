@@ -15,4 +15,5 @@ MonoBehaviour:
   lootSprite: {fileID: 1766520921, guid: 32b89c26ba8b4ee4fbbe8c18c61ccefa, type: 3}
   itemID: 1
   lootName: Reuse
+  name: Metal Can
   dropChance: 100

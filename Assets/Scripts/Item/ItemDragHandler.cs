@@ -10,6 +10,7 @@ using UnityEngine.EventSystems;
 public class ItemDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     Transform originalParent;
+    Vector3 originalScale;
     CanvasGroup canvasGroup;
     TrashcanController trashcanController;
     public int expOnDrop = 1; // You can set this per item in the Inspector
@@ -23,6 +24,8 @@ public class ItemDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     public void OnBeginDrag(PointerEventData eventData)
     {
         originalParent = transform.parent;
+        originalScale = transform.localScale; // Store the original scale
+
         transform.SetParent(transform.root);
         canvasGroup.blocksRaycasts = false;
         canvasGroup.alpha = 0.6f;
@@ -60,27 +63,38 @@ public class ItemDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         }
 
         InventorySlot originalSlot = originalParent.GetComponent<InventorySlot>();
-        if (dropSlot.name.Contains("Recyclable") || dropSlot.name.Contains("Reduce") || dropSlot.name.Contains("Reuse"))
+
+        if (dropSlot != null)
         {
-            Variables variables = GetComponent<Variables>();
-            if (variables != null)
+            if (dropSlot.name.Contains("Recyclable") || dropSlot.name.Contains("Reduce") || dropSlot.name.Contains("Reuse"))
             {
-                string lootType = (string)variables.declarations.Get("lootType");
-                Debug.Log(dropSlot.name + " " + lootType  + " " + dropSlot.name.Contains(lootType));
-                if (!dropSlot.name.Contains(lootType))
+                Variables variables = GetComponent<Variables>();
+                if (variables != null)
+                {
+                    string lootType = (string)variables.declarations.Get("lootType");
+                    Debug.Log(dropSlot.name + " " + lootType + " " + dropSlot.name.Contains(lootType));
+                    if (!dropSlot.name.Contains(lootType))
+                    {
+                        transform.SetParent(originalParent);
+                        GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+                        return;
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning("Variables component is missing on the lootGameObject.");
+                }
+            }
+            if (dropSlot.name.Contains("DoorSlot"))
+            {
+                Item item = GetComponent<Item>();
+                if (item.Name != "ForkScratcher")
                 {
                     transform.SetParent(originalParent);
                     GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
                     return;
                 }
             }
-            else
-            {
-                Debug.LogWarning("Variables component is missing on the lootGameObject.");
-            }
-        }
-        if (dropSlot != null)
-        {
             // Swap or move item
             if (dropSlot.currentItem != null)
             {
@@ -93,9 +107,14 @@ public class ItemDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
                 originalSlot.currentItem = null;
             }
 
+            if (dropSlot.name == "InventorySlot(Clone)")
+            {
+                transform.localScale = dropSlot.transform.localScale;
+            }
             transform.SetParent(dropSlot.transform);
             dropSlot.currentItem = gameObject;
             GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+
 
             // Gain experience
             Experience_Manager expManager = FindObjectOfType<Experience_Manager>();
@@ -104,6 +123,7 @@ public class ItemDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
                 expManager.GainExperience(expOnDrop);
                 StartCoroutine(DestroyAfterDelay(1f)); // Fixed coroutine call
             }
+
         }
         else
         {

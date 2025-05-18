@@ -10,8 +10,25 @@ public class MenuController : MonoBehaviour
     public Button toggleMenuButton;      // The button that triggers the menu
     public GameObject joystickControl;   // Joystick to hide/show
 
+    void Awake()
+    {
+        Debug.Log("MenuController Awake called.");
+    }
+
+    void OnEnable()
+    {
+        Debug.Log("MenuController enabled.");
+    }
+
+    void OnDisable()
+    {
+        Debug.Log("MenuController disabled.");
+    }
+
     void Start()
     {
+        Debug.Log("MenuController Start called.");
+
         if (menuCanvas == null)
         {
             Debug.LogError("Menu Canvas is not assigned in the inspector!");
@@ -19,6 +36,7 @@ public class MenuController : MonoBehaviour
         }
 
         menuCanvas.SetActive(false);  // Hide the menu at the start
+        Debug.Log("Menu canvas set to inactive at start.");
 
         if (toggleMenuButton != null)
         {
@@ -29,19 +47,38 @@ public class MenuController : MonoBehaviour
         {
             Debug.LogError("Toggle Menu Button is not assigned in the inspector!");
         }
+
+        if (joystickControl == null)
+        {
+            Debug.LogWarning("Joystick Control is not assigned in the inspector!");
+        }
     }
 
     void ToggleMenu()
     {
+        Debug.Log("ToggleMenu called.");
+
         if (menuCanvas != null)
         {
             bool newState = !menuCanvas.activeSelf;
             menuCanvas.SetActive(newState);
+            Debug.Log("Menu canvas active state set to: " + newState);
 
             if (joystickControl != null)
+            {
                 joystickControl.SetActive(!newState); // Hide when menu is shown, show when menu is hidden
+                Debug.Log("JoystickControl active state set to: " + (!newState));
+            }
+            else
+            {
+                Debug.LogWarning("Joystick Control is null when toggling menu.");
+            }
 
             Debug.Log("Menu toggled: " + newState);
+        }
+        else
+        {
+            Debug.LogError("Menu Canvas is null when trying to toggle menu.");
         }
     }
 }

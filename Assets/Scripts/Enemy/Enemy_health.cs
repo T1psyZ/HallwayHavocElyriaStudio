@@ -37,8 +37,10 @@ public class Enemy_health : MonoBehaviour
 
     void died()
     {
-
-        GetComponent<LootBag>().InstanstiateLoot(transform.position);
+        if (GetComponent<LootBag>() != null)
+        {
+            GetComponent<LootBag>().InstanstiateLoot(transform.position);
+        }
         Destroy(gameObject);
     }
 

@@ -35,5 +35,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/6thFloorScene.unity
     guid: 41c0b2bfd491bcf4396c50c4054c1a9c
+  - enabled: 1
+    path: Assets/Scenes/InsideKitchenCutScene.unity
+    guid: 3d2dc0ff10c548c469c1cd35804a42b1
+  - enabled: 1
+    path: Assets/Scenes/InsideKitchenScene.unity
+    guid: ba5e3511095072941b106e632395a15b
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: f1205533f1c0e6841bdb7430fdcceed3, type: 2}

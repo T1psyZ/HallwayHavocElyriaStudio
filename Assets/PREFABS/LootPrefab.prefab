@@ -184,6 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2
+  Name: Loot
 --- !u!225 &-684240161095745270
 CanvasGroup:
   m_ObjectHideFlags: 0

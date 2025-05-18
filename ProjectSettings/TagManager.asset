@@ -10,6 +10,8 @@ TagManager:
   - Weapon
   - MicWeapon
   - Locker
+  - Wall
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -78,13 +80,16 @@ TagManager:
     uniqueID: 413976769
     locked: 0
   - name: DecorCoveringPlayer
-    uniqueID: 4066081537
+    uniqueID: 3153015907
     locked: 0
-  - name: Hints
-    uniqueID: 1532502055
+  - name: MutatedDecorCoveringPlayer
+    uniqueID: 4066081537
     locked: 0
   - name: DoorsCoveringPlayer
     uniqueID: 2567437751
+    locked: 0
+  - name: Hints
+    uniqueID: 1532502055
     locked: 0
   - name: SideWall
     uniqueID: 4254829625

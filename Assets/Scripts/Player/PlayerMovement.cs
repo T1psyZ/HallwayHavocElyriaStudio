@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("PlayerController.Start called");
         rgbd2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         playerHealth = GetComponent<PlayerHealth>();
@@ -43,6 +44,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+
         if (playerHealth.IsPlayerDied())
         {
             movement = Vector2.zero;
@@ -63,6 +65,7 @@ public class PlayerController : MonoBehaviour
 
             if (!isUsingStamina)
             {
+                
                 StartCoroutine(UseStaminaWithCooldown());
             }
         }
@@ -83,9 +86,8 @@ public class PlayerController : MonoBehaviour
             animator.SetFloat("Speed", 0);
         }
 
-        LockerInteraction();
+        //LockerInteraction();
     }
-
 
     private void FixedUpdate()
     {
@@ -130,27 +132,30 @@ public class PlayerController : MonoBehaviour
 
     public void Interact()
     {
+        Debug.Log("PlayerController.Interact called");
         Debug.Log("Interact button pressed");
         // Add interaction logic here
     }
 
-    private void LockerInteraction()
-    {
-        var lockers = GameObject.FindGameObjectsWithTag("Locker");
-        foreach (GameObject locker in lockers)
-        {
-            float distance = Vector3.Distance(locker.transform.position, transform.position);
-            Transform childTransform = locker.transform.GetChild(0); // 0 is the index of the child
-            GameObject childObject = childTransform.gameObject;
+    //private void LockerInteraction()
+    //{
+    //    var lockers = GameObject.FindGameObjectsWithTag("Locker");
+    //    foreach (GameObject locker in lockers)
+    //    {
+    //        float distance = Vector3.Distance(locker.transform.position, transform.position);
+    //        Transform childTransform = locker.transform.GetChild(0); // 0 is the index of the child
+    //        GameObject childObject = childTransform.gameObject;
 
-            if (distance <= 1)
-            {
-                childObject.SetActive(true);
-            }
-            else
-            {
-                childObject.SetActive(false);
-            }
-        }
-    }
+    //        if (distance <= 1)
+    //        {
+    //            childObject.SetActive(true);
+    //            interactButton.gameObject.SetActive(true);
+    //        }
+    //        else
+    //        {
+    //            childObject.SetActive(false);
+    //            interactButton.gameObject.SetActive(false);
+    //        }
+    //    }
+    //}
 }

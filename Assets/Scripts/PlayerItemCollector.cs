@@ -15,30 +15,7 @@ public class PlayerItemCollector : MonoBehaviour
         saveController = FindObjectOfType<SaveController>();
     }
 
-    void Update()
-    {
-        //var lootsOnGround = GameObject.FindGameObjectsWithTag("Item");
-        //foreach (GameObject loot in lootsOnGround)
-        //{
-        //    float distance = Vector3.Distance(loot.transform.position, transform.position);
-        //    if (distance < 2)
-        //    {
-        //        Item item = loot.GetComponent<Item>();
-        //        if (item != null) { }
-        //        {
-        //            bool itemAdded = inventoryController.AddItem(loot.gameObject);
 
-        //            if (itemAdded)
-        //            {
-        //                Destroy(loot.gameObject);
-        //                itemCount++;
-        //                break;
-        //            }
-        //        }
-        //    }
-        //}
-
-    }
     //// Update is called once per frame
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -51,12 +28,13 @@ public class PlayerItemCollector : MonoBehaviour
 
                 if (itemAdded)
                 {
+                    item.Pickup();
                     Destroy(collision.gameObject);
                     itemCount++;
                 }
             }
 
-            if (itemCount == 3)
+            if (itemCount == 3 && SceneManager.GetActiveScene().name == "InsideGymScene")
             {
                 saveController.SaveGame();
                 SceneManager.LoadScene(sceneName);

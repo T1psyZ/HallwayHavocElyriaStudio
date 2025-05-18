@@ -15,4 +15,5 @@ MonoBehaviour:
   lootSprite: {fileID: 1312918318, guid: 69916c6590ee0ab4c8cd6f90d441305f, type: 3}
   itemID: 0
   lootName: Reduce
+  name: Battery
   dropChance: 100

@@ -22,6 +22,9 @@ public class Stats_Manager : MonoBehaviour
     public int currentExp;
     public int expToLevel;
 
+    [Header("Skills")]
+    public int skillPoints;
+
     [Header("Combat")]
     public float weaponRange ;
     public int attackDamage;
@@ -35,6 +38,9 @@ public class Stats_Manager : MonoBehaviour
     public float moveSpeed;
     public float walkSpeed;
     public float runSpeed;
+
+    [Header("Other")]
+    public bool canThrow;
 
     private void Awake()
     {

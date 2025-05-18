@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TrashCanInteraction : MonoBehaviour
 {
@@ -9,13 +10,14 @@ public class TrashCanInteraction : MonoBehaviour
     public GameObject player;
     public GameObject menuButton;
     public GameObject joystickControl;
-
+    public Button closeButton;
     private bool playerInRange = false;
     TrashcanController trashcanController;
 
     private void Start()
     {
         trashcanController = FindObjectOfType<TrashcanController>();
+        closeButton.onClick.AddListener(CloseTrashCan);
     }
     void Update()
     {
@@ -42,6 +44,17 @@ public class TrashCanInteraction : MonoBehaviour
             interactButton.SetActive(false); // Hide the interact button
             joystickControl.SetActive(false); // Disable joystick
             menuButton.SetActive(false);      // Disable menu button
+        }
+    }
+    private void CloseTrashCan()
+    {
+        if (trashCanUI != null)
+        {
+            inventoryUI.SetActive(false);
+            trashCanUI.SetActive(false);
+            interactButton.SetActive(true); // Show the interact button again
+            joystickControl.SetActive(true); // Enable joystick
+            menuButton.SetActive(true);      // Enable menu button
         }
     }
 

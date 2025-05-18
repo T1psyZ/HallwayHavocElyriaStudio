@@ -15,4 +15,5 @@ MonoBehaviour:
   lootSprite: {fileID: -1541683606, guid: d0c8fee2257dc904dab3d4c3e2076199, type: 3}
   itemID: 2
   lootName: Recyclable
+  name: Plastick Fork
   dropChance: 100

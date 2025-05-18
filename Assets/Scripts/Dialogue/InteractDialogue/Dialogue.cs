@@ -56,14 +56,18 @@ public class InteractDialogue : MonoBehaviour
 
     public void OnMobileInteractPressed()
     {
-        interactButton.SetActive(false);
-        joystickControl.SetActive(false);
-        virtualJoystick.ResetAnalog();
-        player.GetComponent<PlayerController>().enabled = false; // Disable player movement
+        
 
         if (dialogueActive && !interactDialogueCanvas.activeSelf)
         {
-
+            interactButton.SetActive(false);
+            joystickControl.SetActive(false);
+            virtualJoystick.ResetAnalog();
+            if (player.GetComponent<PlayerController>() != null)
+            {
+                player.GetComponent<PlayerController>().enabled = false;
+            } // Disable player movement
+            else { player.GetComponent<PlayerWalkOnly>().enabled = false; } // Disable player movement
             DisplayDialogueStep();
         }
         else if (dialogueActive)
@@ -89,6 +93,12 @@ public class InteractDialogue : MonoBehaviour
             dialogueActive = false;
             step = 0;
             joystickControl.SetActive(true); // ? Show controls again
+            if (player.GetComponent<PlayerController>() != null)
+            {
+                player.GetComponent<PlayerController>().enabled = true;
+            } // Disable player movement
+            else { player.GetComponent<PlayerWalkOnly>().enabled = true; } // Disable player movement
+
         }
         else
         {

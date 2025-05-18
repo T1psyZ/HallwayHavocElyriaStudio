@@ -15,6 +15,9 @@ public class PlayerWeaponHandler : MonoBehaviour
 
     public GameObject attackBtn;
     public GameObject pickupBtn;
+    public GameObject bullet;
+    public GameObject enemy;
+    private bool isThrowing = false;
 
     private void Start()
     {
@@ -38,8 +41,9 @@ public class PlayerWeaponHandler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R) && !isDashing)
         {
-            StartCoroutine(Dash());
-            playerMovement.animator.SetBool("IsAttacking", true);
+            ThrowableAttack();
+            //StartCoroutine(Dash());
+            //playerMovement.animator.SetBool("IsAttacking", true);
         }
     }
 
@@ -106,5 +110,38 @@ public class PlayerWeaponHandler : MonoBehaviour
 
         isDashing = false;
         playerMovement.enabled = true;
+    }
+
+    public void ThrowableAttack()
+    {
+        Debug.Log(Stats_Manager.instance.canThrow);
+        if (!Stats_Manager.instance.canThrow || isThrowing)
+        {
+            return;
+        }
+        // Instantiate bullet at attackpoint
+        GameObject b = Instantiate(bullet, transform.position, Quaternion.identity);
+
+        // Calculate direction
+        Vector2 direction = (enemy.transform.position - transform.position).normalized;
+
+        // Rotate bullet to face direction (assuming bullet faces right)
+        b.transform.right = direction;
+
+        // Set velocity
+        Rigidbody2D rb = b.GetComponent<Rigidbody2D>();
+        float bulletSpeed = 10f; // Set your desired speed
+        if (rb != null)
+        {
+            rb.velocity = direction * bulletSpeed;
+        }
+        StartCoroutine(ThrowingCooldown());
+    }
+
+    IEnumerator ThrowingCooldown()
+    {
+        isThrowing = true;
+        yield return new WaitForSeconds(Stats_Manager.instance.cooldown);
+        isThrowing = false;
     }
 }

@@ -30,8 +30,9 @@ public class LootBag : MonoBehaviour
                 lootGameObject.GetComponent<SpriteRenderer>().sprite = item.lootSprite;
                 lootGameObject.GetComponent<Image>().sprite = item.lootSprite;
                 lootGameObject.GetComponent<Item>().ID = item.itemID;
+                lootGameObject.GetComponent<Item>().Name = item.name;
 
-                Variables variables = lootGameObject.GetComponent<Variables>();
+            Variables variables = lootGameObject.GetComponent<Variables>();
                 if (variables != null)
                 {
                     variables.declarations.Set("lootType", item.lootName);

@@ -1,80 +1,174 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEditor.Experimental.GraphView;
 using System.Linq;
-
+using System.IO;
 public class SkillTreeManager : MonoBehaviour
 {
-  
-    public SkillSlot[] skillSlots;
-    public TMP_Text pointsText;
-    public int availablePoints;
+    public TMP_Text skillPointsText;
+    public List<SkillNode> allSkills;
+    public List<LearningNode> allLearning;
 
+    void Start()
+    {
+        LoadSkillTree();
+    }
 
-    private void OnEnable()
+    void InitializeSkillNode(SkillNode skill, HashSet<SkillNode> visited)
     {
-        SkillSlot.OnAbilityPointSpent += HandleAbilityPointsSpent;
-        SkillSlot.OnSkillMax += HandleSkillMaxed;
-    }
-    private void OnDisable()
-    {
-        SkillSlot.OnAbilityPointSpent -= HandleAbilityPointsSpent;
-        SkillSlot.OnSkillMax -= HandleSkillMaxed;
-    }
-    private void Start()
-    {
-        foreach (SkillSlot slot in skillSlots)
+        if (skill == null || visited.Contains(skill))
+            return;
+
+        visited.Add(skill);
+
+        skill.skillButton.onClick.AddListener(() => TryUnlockSkill(skill));
+        UpdateSkillUI(skill);
+
+        foreach (var unlock in skill.unlockSkills)
         {
-            slot.skillButton.onClick.AddListener(() => CheckAvailablePoints(slot));
-        }
-        UpdatePointsText(0); // Initialize points text
-    }
-
-    private void CheckAvailablePoints(SkillSlot slot)
-    {
-        if (availablePoints > 0 )
-        {
-            slot.TryUpgradeSkill();
+            InitializeSkillNode(unlock, visited);
         }
     }
 
-    private void HandleAbilityPointsSpent(SkillSlot skillslot)
+    void TryUnlockLearning(LearningNode learning)
     {
-        // Check if the skill is already unlocked
-        if (availablePoints > 0 )
+        if (learning.isUnlocked)
         {
-            UpdatePointsText(-1); // Update points text
+            learning.contextMenu.SetActive(!learning.contextMenu.activeSelf);
+            return;
         }
-       
+        if (Stats_Manager.instance.skillPoints <= 0)
+        {
+            return;
+        }
+        learning.isUnlocked = true;
+        learning.currentPoints++;
+        UpdateLearningUi(learning);
+        SaveSkillTree();
+
     }
 
-    private void HandleSkillMaxed(SkillSlot skillSlot)
+    void TryUnlockSkill(SkillNode skill)
     {
-        Debug.Log($"Skill Maxed: {skillSlot.name}");
+        if (!skill.isUnlocked) return;
 
-        foreach (SkillSlot slot in skillSlots)
+        skill.currentPoints++;
+        Stats_Manager.instance.skillPoints--;
+        UpdateSkillUI(skill);
+        if (skill.skillName.Contains("Health"))
         {
-            if (slot.prerequisiteSkillSlots.Contains(skillSlot) && slot.name != skillSlot.name)
+            Stats_Manager.instance.maxHealth += 1;
+            ;
+        }
+        else if (skill.skillName.Contains("Damage"))
+        {
+            Stats_Manager.instance.attackDamage += 2;
+        }
+        else if (skill.skillName.Contains("Stamina"))
+        {
+            Stats_Manager.instance.maxStamina += 1;
+        }
+
+
+        if (skill.currentPoints == skill.maxPoints)
+        {
+            foreach (var unlock in skill.unlockSkills)
             {
-                if (!slot.isUnlocked)
-                {
-
-                    slot.Unlock();
-                    break;
-                }
-                else
-                {
-                    Debug.Log($"{slot.name} is already unlocked, skipping.");
-                }
+                unlock.isUnlocked = true;
+                UpdateSkillUI(unlock);
             }
         }
+
+        foreach (var disable in skill.disableSkills)
+        {
+            disable.isUnlocked = false;
+            UpdateSkillUI(disable);
+        }
+        SaveSkillTree();
     }
 
-
-    public void UpdatePointsText(int amount)
+    void UpdateSkillUI(SkillNode skill)
     {
-        availablePoints += amount;
-        pointsText.text = "Points: " + availablePoints;
+        Debug.Log(skill.skillName + " " + skill.isUnlocked + " " + skill.currentPoints + "/" + skill.maxPoints);
+        skill.skillButton.interactable = skill.isUnlocked && skill.currentPoints < skill.maxPoints && Stats_Manager.instance.skillPoints > 0;
+        skill.statusText.text = skill.isUnlocked ? $"{skill.currentPoints}/{skill.maxPoints}" : skill.currentPoints == skill.maxPoints ? "Maxed" : "Locked";
+        skill.skillIcon.color = skill.isUnlocked ? Color.white : Color.gray;
+        skill.statusText.color = skill.isUnlocked ? Color.white : Color.black;
+        skillPointsText.text = $"Skill Points: {Stats_Manager.instance.skillPoints}";
+    }
+
+    void UpdateLearningUi(LearningNode learning)
+    {
+        learning.statusText.text = learning.isUnlocked ? "Learned" : "Locked";
+        learning.learningIcon.color = learning.isUnlocked ? Color.white : Color.gray;
+        learning.statusText.color = learning.isUnlocked ? Color.white : Color.black;
+        skillPointsText.text = $"Skill Points: {Stats_Manager.instance.skillPoints}";
+    }
+
+    public void SaveSkillTree()
+    {
+        var skillData = allSkills;
+
+        var learningData = allLearning;
+
+        var saveObj = new SkillTreeSaveData { allSkills = skillData, allLearning = learningData };
+        string json = JsonUtility.ToJson(saveObj, true);
+
+        // Save to file (for example)
+        File.WriteAllText(Application.persistentDataPath + "/skilltree_save10.json", json);
+        Debug.Log("Skill tree saved: " + json);
+    }
+
+    public void LoadSkillTree()
+    {
+        string path = Application.persistentDataPath + "/skilltree_save10.json";
+        if (!File.Exists(path))
+        {
+            foreach (var skill in allSkills)
+            {
+                InitializeSkillNode(skill, new HashSet<SkillNode>());
+                foreach (var disable in skill.disableSkills)
+                {
+                    disable.isUnlocked = false;
+                    UpdateSkillUI(disable);
+                }
+            }
+
+            foreach (var learning in allLearning)
+            {
+                learning.learningButton.onClick.AddListener(() => TryUnlockLearning(learning));
+                UpdateLearningUi(learning);
+            }
+            return;
+        }
+
+        string json = File.ReadAllText(path);
+        var saveObj = JsonUtility.FromJson<SkillTreeSaveData>(json);
+        allSkills = saveObj.allSkills;
+        allLearning = saveObj.allLearning;
+        foreach (var skill in allSkills)
+        {
+            InitializeSkillNode(skill, new HashSet<SkillNode>());
+            foreach (var disable in skill.disableSkills)
+            {
+                disable.isUnlocked = false;
+                UpdateSkillUI(disable);
+            }
+        }
+
+        foreach (var learning in allLearning)
+        {
+            learning.learningButton.onClick.AddListener(() => TryUnlockLearning(learning));
+            UpdateLearningUi(learning);
+        }
+
+        Debug.Log("Skill tree loaded: " + json);
+    }
+
+    public class SkillTreeSaveData
+    {
+        public List<SkillNode> allSkills;
+        public List<LearningNode> allLearning;
     }
 }
