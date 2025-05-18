@@ -12,7 +12,7 @@ public class SaveController : MonoBehaviour
     public bool loadPosition = false;
     void Start()
     {
-        saveLocation = Path.Combine(Application.persistentDataPath, "saveData14.json");
+        saveLocation = Path.Combine(Application.persistentDataPath, "saveData15.json");
         inventoryController = FindObjectOfType<InventoryController>();
         trashcanController = FindObjectOfType<TrashcanController>();
         LoadGame();

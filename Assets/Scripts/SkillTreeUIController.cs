@@ -35,6 +35,17 @@ public class SkillTreeController : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        // Check for mobile input to toggle menu
+        if (Input.GetKeyDown(KeyCode.L)) // Replace with your mobile input check
+        {
+            bool newState = !skillTreeCanvas.activeSelf;
+            skillTreeCanvas.SetActive(newState);
+            joystickControl.SetActive(!newState); // Hide joystick if skill tree is shown, and show it when skill tree is hidden
+            Debug.Log("Menu toggled: " + newState);
+        }
+    }
     void ToggleSkillTree()
     {
         if (skillTreeCanvas != null)

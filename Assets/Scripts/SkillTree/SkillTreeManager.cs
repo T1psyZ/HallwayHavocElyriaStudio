@@ -14,6 +14,44 @@ public class SkillTreeManager : MonoBehaviour
     {
         LoadSkillTree();
     }
+    SkillNode getDefaultSkill(string name)
+    {
+        // First, search in allSkills
+        foreach (var skillDefault in allSkills)
+        {
+            if (skillDefault.skillName == name)
+            {
+                return skillDefault;
+            }
+        }
+
+        // If not found, search recursively in unlockSkills
+        foreach (var skillDefault in allSkills)
+        {
+            SkillNode found = getDefaultSkillInUnlocks(skillDefault.unlockSkills, name);
+            if (found != null)
+                return found;
+        }
+
+        return null;
+    }
+
+    SkillNode getDefaultSkillInUnlocks(List<SkillNode> unlockSkills, string name)
+    {
+        if (unlockSkills == null)
+            return null;
+
+        foreach (var unlock in unlockSkills)
+        {
+            if (unlock.skillName == name)
+                return unlock;
+
+            SkillNode found = getDefaultSkillInUnlocks(unlock.unlockSkills, name);
+            if (found != null)
+                return found;
+        }
+        return null;
+    }
 
     void InitializeSkillNode(SkillNode skill, HashSet<SkillNode> visited)
     {
@@ -21,7 +59,7 @@ public class SkillTreeManager : MonoBehaviour
             return;
 
         visited.Add(skill);
-
+        
         skill.skillButton.onClick.AddListener(() => TryUnlockSkill(skill, false, 0));
         UpdateSkillUI(skill);
 
@@ -29,24 +67,38 @@ public class SkillTreeManager : MonoBehaviour
         {
             InitializeSkillNode(unlock, visited);
         }
+
     }
+
 
     void InitializeSkillNodeDatabase(SkillNode skill, HashSet<SkillNode> visited)
     {
-        if (skill == null || visited.Contains(skill))
+        if (skill == null)
             return;
 
-        visited.Add(skill);
-        skill.skillButton.onClick.AddListener(() => TryUnlockSkill(skill, false, 0));
+        var skillDefault = getDefaultSkill(skill.skillName);
+        if (skillDefault == null)
+        {
+            // Fallback: search in this skill's own unlockSkills
+            skillDefault = getDefaultSkillInUnlocks(skill.unlockSkills, skill.skillName);
+            if (skillDefault == null)
+                skillDefault = skill; // If still not found, use the passed-in skill
+        }
 
-        TryUnlockSkill(skill, true, skill.currentPoints);
+        if (visited.Contains(skillDefault))
+            return;
+        Debug.Assert(skillDefault != null, $"Skill {skill.skillName} not found in allSkills or unlockSkills.");
+        visited.Add(skillDefault);
+        skillDefault.skillButton.onClick.AddListener(() => TryUnlockSkill(skillDefault, false, 0));
+
+        TryUnlockSkill(skillDefault, true, skill.currentPoints);
 
         foreach (var unlock in skill.unlockSkills)
         {
             InitializeSkillNodeDatabase(unlock, visited);
-
         }
     }
+
 
     void TryUnlockLearning(LearningNode learning)
     {
@@ -67,7 +119,6 @@ public class SkillTreeManager : MonoBehaviour
 
     void TryUnlockSkill(SkillNode skill, bool load, int points)
     {
-        Debug.Log($"Skill: {skill.skillName}, Unlocked: {skill.isUnlocked}, Points: {skill.currentPoints}/{skill.maxPoints}, Load: {load}, Points: {points}");
         if (!skill.isUnlocked || points <= 0 && load) return;
 
         skill.currentPoints = !load ? skill.currentPoints+1: points;
@@ -132,13 +183,13 @@ public class SkillTreeManager : MonoBehaviour
         string json = JsonUtility.ToJson(saveObj, true);
 
         // Save to file (for example)
-        File.WriteAllText(Application.persistentDataPath + "/skilltree_save20.json", json);
+        File.WriteAllText(Application.persistentDataPath + "/skilltree_save2232.json", json);
         Debug.Log("Skill tree saved: " + json);
     }
 
     public void LoadSkillTree()
     {
-        string path = Application.persistentDataPath + "/skilltree_save20.json";
+        string path = Application.persistentDataPath + "/skilltree_save2232.json";
         if (!File.Exists(path))
         {
             foreach (var skill in allSkills)
@@ -162,7 +213,6 @@ public class SkillTreeManager : MonoBehaviour
         string json = File.ReadAllText(path);
         var saveObj = JsonUtility.FromJson<SkillTreeSaveData>(json);
         var visited = new HashSet<SkillNode>();
-        allSkills = saveObj.allSkills;
 
         foreach (var skill in saveObj.allSkills)
         {

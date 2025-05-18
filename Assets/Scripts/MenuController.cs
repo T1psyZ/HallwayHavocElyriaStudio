@@ -54,6 +54,15 @@ public class MenuController : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        // Check for mobile input to toggle menu
+        if (Input.GetKeyDown(KeyCode.Tab)) // Replace with your mobile input check
+        {
+            ToggleMenu();
+            Debug.Log("Menu toggled via mobile input.");
+        }
+    }
     void ToggleMenu()
     {
         Debug.Log("ToggleMenu called.");

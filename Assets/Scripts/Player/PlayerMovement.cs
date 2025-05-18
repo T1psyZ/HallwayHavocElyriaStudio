@@ -25,7 +25,6 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("PlayerController.Start called");
         rgbd2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         playerHealth = GetComponent<PlayerHealth>();
@@ -58,16 +57,25 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("HadAStick", true);
         }
 
-        if (isSprintPressed && Stats_Manager.instance.currentStamina > 0)
+        if (isSprintPressed || Input.GetKey(KeyCode.LeftShift))
         {
-            moveSpeed = Stats_Manager.instance.runSpeed;
-            animator.SetBool("isRunning", true);
-
-            if (!isUsingStamina)
+            if (Stats_Manager.instance.currentStamina > 0)
             {
-                
-                StartCoroutine(UseStaminaWithCooldown());
+                moveSpeed = Stats_Manager.instance.runSpeed;
+                animator.SetBool("isRunning", true);
+
+                if (!isUsingStamina)
+                {
+
+                    StartCoroutine(UseStaminaWithCooldown());
+                }
             }
+            else
+            {
+                moveSpeed = Stats_Manager.instance.walkSpeed;
+                animator.SetBool("isRunning", false);
+            }
+
         }
         else
         {

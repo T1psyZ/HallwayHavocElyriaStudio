@@ -14,6 +14,10 @@ public class MutatedDoor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Interact();
+        }
         if (inventorySlot != null)
         {
             if (inventorySlot.currentItem != null)

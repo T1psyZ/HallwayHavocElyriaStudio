@@ -47,7 +47,6 @@ public class InteractDialogue : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            DisplayDialogueStep();
             OnMobileInteractPressed();
         }
     }

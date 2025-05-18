@@ -42,8 +42,8 @@ public class PlayerWeaponHandler : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R) && !isDashing)
         {
             ThrowableAttack();
-            //StartCoroutine(Dash());
-            //playerMovement.animator.SetBool("IsAttacking", true);
+            StartCoroutine(Dash());
+            playerMovement.animator.SetBool("IsAttacking", true);
         }
     }
 
@@ -114,7 +114,6 @@ public class PlayerWeaponHandler : MonoBehaviour
 
     public void ThrowableAttack()
     {
-        Debug.Log(Stats_Manager.instance.canThrow);
         if (!Stats_Manager.instance.canThrow || isThrowing)
         {
             return;

@@ -22,6 +22,13 @@ public class LockerScript : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            OpenLocker();
+        }
+    }
     public void OpenLocker()
     {
         if (canInteract)
