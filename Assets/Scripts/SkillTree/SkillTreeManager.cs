@@ -22,12 +22,29 @@ public class SkillTreeManager : MonoBehaviour
 
         visited.Add(skill);
 
-        skill.skillButton.onClick.AddListener(() => TryUnlockSkill(skill));
+        skill.skillButton.onClick.AddListener(() => TryUnlockSkill(skill, false, 0));
         UpdateSkillUI(skill);
 
         foreach (var unlock in skill.unlockSkills)
         {
             InitializeSkillNode(unlock, visited);
+        }
+    }
+
+    void InitializeSkillNodeDatabase(SkillNode skill, HashSet<SkillNode> visited)
+    {
+        if (skill == null || visited.Contains(skill))
+            return;
+
+        visited.Add(skill);
+        skill.skillButton.onClick.AddListener(() => TryUnlockSkill(skill, false, 0));
+
+        TryUnlockSkill(skill, true, skill.currentPoints);
+
+        foreach (var unlock in skill.unlockSkills)
+        {
+            InitializeSkillNodeDatabase(unlock, visited);
+
         }
     }
 
@@ -46,15 +63,15 @@ public class SkillTreeManager : MonoBehaviour
         learning.currentPoints++;
         UpdateLearningUi(learning);
         SaveSkillTree();
-
     }
 
-    void TryUnlockSkill(SkillNode skill)
+    void TryUnlockSkill(SkillNode skill, bool load, int points)
     {
-        if (!skill.isUnlocked) return;
+        Debug.Log($"Skill: {skill.skillName}, Unlocked: {skill.isUnlocked}, Points: {skill.currentPoints}/{skill.maxPoints}, Load: {load}, Points: {points}");
+        if (!skill.isUnlocked || points <= 0 && load) return;
 
-        skill.currentPoints++;
-        Stats_Manager.instance.skillPoints--;
+        skill.currentPoints = !load ? skill.currentPoints+1: points;
+        Stats_Manager.instance.skillPoints = !load ? Stats_Manager.instance.skillPoints-1 : Stats_Manager.instance.skillPoints;
         UpdateSkillUI(skill);
         if (skill.skillName.Contains("Health"))
         {
@@ -70,7 +87,6 @@ public class SkillTreeManager : MonoBehaviour
             Stats_Manager.instance.maxStamina += 1;
         }
 
-
         if (skill.currentPoints == skill.maxPoints)
         {
             foreach (var unlock in skill.unlockSkills)
@@ -85,12 +101,12 @@ public class SkillTreeManager : MonoBehaviour
             disable.isUnlocked = false;
             UpdateSkillUI(disable);
         }
-        SaveSkillTree();
+        if (!load) SaveSkillTree();
     }
 
     void UpdateSkillUI(SkillNode skill)
     {
-        Debug.Log(skill.skillName + " " + skill.isUnlocked + " " + skill.currentPoints + "/" + skill.maxPoints);
+        
         skill.skillButton.interactable = skill.isUnlocked && skill.currentPoints < skill.maxPoints && Stats_Manager.instance.skillPoints > 0;
         skill.statusText.text = skill.isUnlocked ? $"{skill.currentPoints}/{skill.maxPoints}" : skill.currentPoints == skill.maxPoints ? "Maxed" : "Locked";
         skill.skillIcon.color = skill.isUnlocked ? Color.white : Color.gray;
@@ -116,13 +132,13 @@ public class SkillTreeManager : MonoBehaviour
         string json = JsonUtility.ToJson(saveObj, true);
 
         // Save to file (for example)
-        File.WriteAllText(Application.persistentDataPath + "/skilltree_save10.json", json);
+        File.WriteAllText(Application.persistentDataPath + "/skilltree_save20.json", json);
         Debug.Log("Skill tree saved: " + json);
     }
 
     public void LoadSkillTree()
     {
-        string path = Application.persistentDataPath + "/skilltree_save10.json";
+        string path = Application.persistentDataPath + "/skilltree_save20.json";
         if (!File.Exists(path))
         {
             foreach (var skill in allSkills)
@@ -145,11 +161,12 @@ public class SkillTreeManager : MonoBehaviour
 
         string json = File.ReadAllText(path);
         var saveObj = JsonUtility.FromJson<SkillTreeSaveData>(json);
+        var visited = new HashSet<SkillNode>();
         allSkills = saveObj.allSkills;
-        allLearning = saveObj.allLearning;
-        foreach (var skill in allSkills)
+
+        foreach (var skill in saveObj.allSkills)
         {
-            InitializeSkillNode(skill, new HashSet<SkillNode>());
+            InitializeSkillNodeDatabase(skill, new HashSet<SkillNode>());
             foreach (var disable in skill.disableSkills)
             {
                 disable.isUnlocked = false;
@@ -159,6 +176,14 @@ public class SkillTreeManager : MonoBehaviour
 
         foreach (var learning in allLearning)
         {
+            foreach (var save in saveObj.allLearning)
+            {
+                if (learning.learningName == save.learningName)
+                {
+                    learning.isUnlocked = save.isUnlocked;
+                    break;
+                }
+            }
             learning.learningButton.onClick.AddListener(() => TryUnlockLearning(learning));
             UpdateLearningUi(learning);
         }
