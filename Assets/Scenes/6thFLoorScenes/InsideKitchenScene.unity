@@ -9750,6 +9750,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6e1ff609ecf644f4faf5cc744a0d2cd6, type: 3}
   - {fileID: 8300000, guid: 9562be0b2f723d34fa6b3ebb137e7c17, type: 3}
   typingSpeed: 0.02
+  joystickControl: {fileID: 1874047332}
+  virtualJoystick: {fileID: 0}
 --- !u!61 &671929930
 BoxCollider2D:
   m_ObjectHideFlags: 0
