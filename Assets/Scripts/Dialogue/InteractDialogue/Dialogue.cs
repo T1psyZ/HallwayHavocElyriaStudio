@@ -23,6 +23,9 @@ public class InteractDialogue : MonoBehaviour
 
     [SerializeField] private float typingSpeed = 0.02f;
 
+    [Header("Collider Object")]
+    [SerializeField] private GameObject colliderObject;
+
     private AudioSource interactAudioSource;
     private Coroutine typingCoroutine;
     private bool isTyping;
@@ -51,22 +54,23 @@ public class InteractDialogue : MonoBehaviour
         }
     }
 
-    // Removed keyboard input check since mobile UI button will handle it
-
     public void OnMobileInteractPressed()
     {
-        
-
         if (dialogueActive && !interactDialogueCanvas.activeSelf)
         {
             interactButton.SetActive(false);
             joystickControl.SetActive(false);
             virtualJoystick.ResetAnalog();
+
             if (player.GetComponent<PlayerController>() != null)
             {
                 player.GetComponent<PlayerController>().enabled = false;
-            } // Disable player movement
-            else { player.GetComponent<PlayerWalkOnly>().enabled = false; } // Disable player movement
+            }
+            else
+            {
+                player.GetComponent<PlayerWalkOnly>().enabled = false;
+            }
+
             DisplayDialogueStep();
         }
         else if (dialogueActive)
@@ -77,7 +81,6 @@ public class InteractDialogue : MonoBehaviour
 
     private void OnNextButtonClicked()
     {
-       
         interactAudioSource.Stop();
 
         if (isTyping)
@@ -91,13 +94,22 @@ public class InteractDialogue : MonoBehaviour
             interactDialogueCanvas.SetActive(false);
             dialogueActive = false;
             step = 0;
-            joystickControl.SetActive(true); // ? Show controls again
+            joystickControl.SetActive(true);
+
             if (player.GetComponent<PlayerController>() != null)
             {
                 player.GetComponent<PlayerController>().enabled = true;
-            } // Disable player movement
-            else { player.GetComponent<PlayerWalkOnly>().enabled = true; } // Disable player movement
+            }
+            else
+            {
+                player.GetComponent<PlayerWalkOnly>().enabled = true;
+            }
 
+            // Deactivate the collider object after dialogue is done
+            if (colliderObject != null)
+            {
+                colliderObject.SetActive(false);
+            }
         }
         else
         {
@@ -169,8 +181,6 @@ public class InteractDialogue : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            
-
             dialogueActive = true;
             interactHint.SetActive(true);
             interactButton.SetActive(true);

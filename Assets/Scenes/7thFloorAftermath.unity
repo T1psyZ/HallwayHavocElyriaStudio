@@ -1501,11 +1501,11 @@ RectTransform:
   m_Children:
   - {fileID: 668702801}
   - {fileID: 1771207032}
-  - {fileID: 760669303}
   - {fileID: 149925643}
   - {fileID: 183071564}
   - {fileID: 1657248833}
   - {fileID: 242325751}
+  - {fileID: 760669303}
   m_Father: {fileID: 682462555}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -7268,7 +7268,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 960, y: 540}
+  m_AnchoredPosition: {x: 959.9999, y: 539.99994}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &760669304
@@ -7910,6 +7910,83 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 820922998}
   m_CullTransparentMesh: 1
+--- !u!1 &830406249
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 830406251}
+  - component: {fileID: 830406250}
+  m_Layer: 0
+  m_Name: FINISHDIALOGUEFIRST
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &830406250
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830406249}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.17240793}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.9359285}
+  m_EdgeRadius: 0
+--- !u!4 &830406251
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830406249}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -17.244951, y: 1.814195, z: 0.22221622}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &830944083
 GameObject:
   m_ObjectHideFlags: 0
@@ -20504,7 +20581,7 @@ MonoBehaviour:
   interactNextButton: {fileID: 1784537940}
   interactDialogueText: {fileID: 601493807}
   interactPortraitImage: {fileID: 1493717346}
-  interactButton: {fileID: 1266466245}
+  interactButton: {fileID: 1358093511}
   joystickControl: {fileID: 191310209}
   interactSpeakers:
   - You
@@ -20540,8 +20617,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6e1ff609ecf644f4faf5cc744a0d2cd6, type: 3}
   - {fileID: 8300000, guid: 6e1ff609ecf644f4faf5cc744a0d2cd6, type: 3}
   typingSpeed: 0.02
+  colliderObject: {fileID: 830406249}
   virtualJoystick: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 307540355}
 --- !u!61 &922524951
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27507,18 +27585,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 922524950}
-        m_TargetAssemblyTypeName: InteractDialogue, Assembly-CSharp
-        m_MethodName: OnMobileInteractPressed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2132692948}
         m_TargetAssemblyTypeName: TrashCanInteraction, Assembly-CSharp
         m_MethodName: OnMobileInteractPressed
@@ -27609,7 +27675,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -133.12024, y: 351.3297}
+  m_AnchoredPosition: {x: -133.12024, y: 377}
   m_SizeDelta: {x: 385.325, y: 442.3331}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1274006495 stripped
@@ -28592,12 +28658,12 @@ GameObject:
   - component: {fileID: 1358093514}
   - component: {fileID: 1358093513}
   m_Layer: 5
-  m_Name: AttackBtn
+  m_Name: DialogueButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1358093512
 RectTransform:
   m_ObjectHideFlags: 0
@@ -28661,9 +28727,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2112772249}
-        m_TargetAssemblyTypeName: PlayerWeaponHandler, Assembly-CSharp
-        m_MethodName: OnAttackButtonPressed
+      - m_Target: {fileID: 922524950}
+        m_TargetAssemblyTypeName: InteractDialogue, Assembly-CSharp
+        m_MethodName: OnMobileInteractPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -28686,14 +28752,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0.4792453, g: 0.4792453, b: 0.4792453, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 710219127, guid: 32c448eb6c40c6d4695be97d6cb50968, type: 3}
+  m_Sprite: {fileID: 112846983, guid: 97b73bb456b872045bcfdff3157a619c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -40322,7 +40388,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.17318153, y: 1.7877254}
@@ -44898,3 +44964,4 @@ SceneRoots:
   - {fileID: 1917246887}
   - {fileID: 977535855}
   - {fileID: 1297237154}
+  - {fileID: 830406251}

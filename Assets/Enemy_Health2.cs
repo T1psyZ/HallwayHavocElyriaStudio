@@ -15,10 +15,14 @@ public class Enemy_Health2 : MonoBehaviour
     public int maxHealth;
 
     EnemyHealthBar healthBar;
+    private Animator animator;
+    public float deathAnimDuration = 1.0f; // Set this to your death animation's length
+
     void Start()
     {
         currentHealth = maxHealth;
         healthBar = GetComponentInChildren<EnemyHealthBar>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     public void ChangeHealth(int amount)
@@ -31,21 +35,24 @@ public class Enemy_Health2 : MonoBehaviour
         }
         else if (currentHealth <= 0)
         {
-          
-            died();
+            StartCoroutine(DieWithAnimation());
         }
     }
 
-    void died()
+    IEnumerator DieWithAnimation()
     {
         if (GetComponent<LootBag>() != null)
         {
             GetComponent<LootBag>().InstanstiateLoot(transform.position);
         }
+
+        if (animator != null)
+        {
+            animator.SetBool("IsDead", true);
+            yield return new WaitForSeconds(deathAnimDuration);
+        }
+
         Destroy(gameObject);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-
     }
-
-
 }
