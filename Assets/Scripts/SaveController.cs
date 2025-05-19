@@ -12,6 +12,7 @@ public class SaveController : MonoBehaviour
     public bool loadPosition = false;
     void Start()
     {
+        Screen.SetResolution(Screen.width, Screen.height, true);
         saveLocation = Path.Combine(Application.persistentDataPath, "saveData30.json");
         inventoryController = FindObjectOfType<InventoryController>();
         trashcanController = FindObjectOfType<TrashcanController>();

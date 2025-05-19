@@ -27,6 +27,7 @@ public class MenuController : MonoBehaviour
 
     void Start()
     {
+        Screen.SetResolution(Screen.width, Screen.height, true);
         Debug.Log("MenuController Start called.");
 
         if (menuCanvas == null)
