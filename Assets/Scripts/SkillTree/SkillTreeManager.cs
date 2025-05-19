@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEditor.Experimental.GraphView;
-using System.Linq;
 using System.IO;
 public class SkillTreeManager : MonoBehaviour
 {

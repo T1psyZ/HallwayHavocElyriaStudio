@@ -33455,7 +33455,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1160142246}
         m_TargetAssemblyTypeName: SaveController, Assembly-CSharp
         m_MethodName: SaveGame
         m_Mode: 1
