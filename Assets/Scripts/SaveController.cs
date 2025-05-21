@@ -17,12 +17,20 @@ public class SaveController : MonoBehaviour
         saveLocation = Path.Combine(Application.persistentDataPath, "saveData30.json");
         inventoryController = FindObjectOfType<InventoryController>();
         trashcanController = FindObjectOfType<TrashcanController>();
-        LoadGame();
-        SaveScene();
+        if (SceneManager.GetActiveScene().name == "InsideGymScene")
+        {
+            
+            SaveGame();
+        }
+        else
+        {
+            LoadGame(); 
+        }
     }
 
     public void SaveGame()
     {
+        inventoryController.SetInventorySlots();
         SaveData saveData = new SaveData
         {
             playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position,
@@ -35,30 +43,6 @@ public class SaveController : MonoBehaviour
         };
 
         File.WriteAllText(saveLocation, JsonUtility.ToJson(saveData));
-    }
-
-    public void SaveScene()
-    {
-        var saveLocationScene = Path.Combine(Application.persistentDataPath, "saveScene.json");
-        SaveData saveData = new SaveData
-        {
-            sceneName = SceneManager.GetActiveScene().name
-        };
-        File.WriteAllText(saveLocationScene, JsonUtility.ToJson(saveData));
-    }
-
-    public string GetSaveScene()
-    {   
-        if (File.Exists(Path.Combine(Application.persistentDataPath, "saveScene.json")))
-        {
-            SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(Path.Combine(Application.persistentDataPath, "saveScene.json")));
-            return saveData.sceneName;
-        }
-        else
-        {
-            return "InsideGymScene";
-        }
-
     }
 
     public void LoadGame()

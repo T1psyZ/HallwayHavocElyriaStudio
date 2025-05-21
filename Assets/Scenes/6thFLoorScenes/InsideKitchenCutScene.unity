@@ -35930,7 +35930,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 712133500}
-  - component: {fileID: 712133499}
+  - component: {fileID: 712133501}
   m_Layer: 0
   m_Name: SceneChanger
   m_TagString: Untagged
@@ -35938,22 +35938,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &712133499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 712133498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4be2c6c78dd96404cba8bca217bd06fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  changeTime: 7
-  sceneName: InsideKitchenScene
-  additive: 0
-  sceneToUnload: 
 --- !u!4 &712133500
 Transform:
   m_ObjectHideFlags: 0
@@ -35969,6 +35953,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &712133501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712133498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7661d5863f7b6e3478f2a7d46e3aefe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quitTime: 7
 --- !u!1 &722336800
 GameObject:
   m_ObjectHideFlags: 0

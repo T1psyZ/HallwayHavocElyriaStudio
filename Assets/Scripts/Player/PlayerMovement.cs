@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        Screen.SetResolution(Screen.width, Screen.height, true);
         rgbd2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         playerHealth = GetComponent<PlayerHealth>();

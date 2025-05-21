@@ -2,6 +2,7 @@
 using UnityEngine;
 using TMPro;
 using System.IO;
+using UnityEngine.SceneManagement;
 public class SkillTreeManager : MonoBehaviour
 {
     public TMP_Text skillPointsText;
@@ -181,14 +182,14 @@ public class SkillTreeManager : MonoBehaviour
         string json = JsonUtility.ToJson(saveObj, true);
 
         // Save to file (for example)
-        File.WriteAllText(Application.persistentDataPath + "/skilltree_save2231.json", json);
+        File.WriteAllText(Application.persistentDataPath + "/skilltree_save234324234.json", json);
         Debug.Log("Skill tree saved: " + json);
     }
 
     public void LoadSkillTree()
     {
-        string path = Application.persistentDataPath + "/skilltree_save2231.json";
-        if (!File.Exists(path))
+        string path = Application.persistentDataPath + "/skilltree_save234324234.json";
+        if (!File.Exists(path) || SceneManager.GetActiveScene().name == "6thFloorScene")
         {
             foreach (var skill in allSkills)
             {
@@ -205,6 +206,7 @@ public class SkillTreeManager : MonoBehaviour
                 learning.learningButton.onClick.AddListener(() => TryUnlockLearning(learning));
                 UpdateLearningUi(learning);
             }
+            SaveSkillTree();
             return;
         }
 

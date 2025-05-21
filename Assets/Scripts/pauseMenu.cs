@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class pauseMenu : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class pauseMenu : MonoBehaviour
 
     public void Menu()
     {
-       
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(0);
     }
 }

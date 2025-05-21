@@ -61,10 +61,7 @@ public class InventoryController : MonoBehaviour
 
     public void SetInventoryItems(List<InventorySaveData> inventorySaveData)
     {
-        for (int i = 0; i < slotCount; i++)
-        {
-            Instantiate(inventorySlotPrefab, inventoryPanel.transform);
-        }
+        SetInventorySlots();
 
         foreach (InventorySaveData data in inventorySaveData)
         {
@@ -88,4 +85,11 @@ public class InventoryController : MonoBehaviour
         }
     }
    
+    public void SetInventorySlots()
+    {
+        for (int i = 0; i < slotCount; i++)
+        {
+            Instantiate(inventorySlotPrefab, inventoryPanel.transform);
+        }
+    }
 }
