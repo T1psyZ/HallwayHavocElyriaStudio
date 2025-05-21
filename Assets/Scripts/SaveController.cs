@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.SceneManagement;
 
 public class SaveController : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class SaveController : MonoBehaviour
         inventoryController = FindObjectOfType<InventoryController>();
         trashcanController = FindObjectOfType<TrashcanController>();
         LoadGame();
-
+        SaveScene();
     }
 
     public void SaveGame()
@@ -35,7 +36,31 @@ public class SaveController : MonoBehaviour
 
         File.WriteAllText(saveLocation, JsonUtility.ToJson(saveData));
     }
-   
+
+    public void SaveScene()
+    {
+        var saveLocationScene = Path.Combine(Application.persistentDataPath, "saveScene.json");
+        SaveData saveData = new SaveData
+        {
+            sceneName = SceneManager.GetActiveScene().name
+        };
+        File.WriteAllText(saveLocationScene, JsonUtility.ToJson(saveData));
+    }
+
+    public string GetSaveScene()
+    {   
+        if (File.Exists(Path.Combine(Application.persistentDataPath, "saveScene.json")))
+        {
+            SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(Path.Combine(Application.persistentDataPath, "saveScene.json")));
+            return saveData.sceneName;
+        }
+        else
+        {
+            return "InsideGymScene";
+        }
+
+    }
+
     public void LoadGame()
     {
         if (File.Exists(saveLocation))

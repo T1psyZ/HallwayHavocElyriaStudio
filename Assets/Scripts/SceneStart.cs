@@ -8,10 +8,11 @@ public class SceneStart : MonoBehaviour
     public GameObject[] uiActivate;
     public TMPro.TMP_Text text;
     public float timerDuration = 10f;
-
+    SaveController saveController;
     private float timer;
     void Start()
     {
+        saveController = FindObjectOfType<SaveController>();
         timer = timerDuration;
         foreach (var ui in uiDeactivate)
         {
